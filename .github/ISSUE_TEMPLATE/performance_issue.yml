@@ -1,0 +1,99 @@
+name: ⚡ Performance Issue
+description: Report a performance problem or bottleneck
+title: "⚡ Performance: "
+labels: ["performance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a performance issue!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please provide a clear and concise description of the performance issue
+      placeholder: "Describe what operation is slow and how it impacts usage..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this performance issue?
+      value: |
+        1.
+        2.
+        3.
+        4.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Performance
+      description: What performance would you consider reasonable for this operation?
+      placeholder: "e.g., The operation should complete in under 1 second for files of this size..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Performance
+      description: What performance are you currently experiencing?
+      placeholder: "e.g., The operation takes 15-20 seconds to complete..."
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which version of the project are you using?
+      placeholder: "e.g., 1.0.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: "Please share details about your environment:"
+      value: |
+        - Node.js version:
+        - Operating System and version:
+        - CPU model:
+        - RAM:
+        - Any other relevant hardware/software information:
+    validations:
+      required: true
+
+  - type: textarea
+    id: profiling
+    attributes:
+      label: Profiling Data
+      description: If available, include any profiling data or metrics you've collected
+      placeholder: "Paste any performance profiling data, benchmark results, or metrics here..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+      placeholder: "Any additional information that might be helpful..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](../CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

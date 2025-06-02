@@ -156,14 +156,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             item.classList.add('bg-blue-100', 'border-blue-500')
             const data = functionalityData[item.id]
             if (data) {
-                funcDetailsEl.style.opacity = 0
-                setTimeout(() => {
-                    funcDetailsEl.innerHTML = `
+                fadeInOut(
+                    funcDetailsEl,
+                    `
                         <h4 class="font-semibold text-stone-800">${getMessage(data.titleKey)}</h4>
                         <p class="mt-2 text-stone-600">${getMessage(data.descriptionKey)}</p>
-                       `
-                    funcDetailsEl.style.opacity = 1
-                }, 150)
+                    `,
+                    150
+                );
             }
         })
     })

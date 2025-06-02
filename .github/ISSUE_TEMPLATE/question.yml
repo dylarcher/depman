@@ -1,0 +1,60 @@
+name: ❓ Question
+description: Ask a question about this project
+title: "❓ Question: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in our project! Please make sure you've checked the documentation and existing issues before submitting a question.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What would you like to know about this project?
+      placeholder: "Ask your question here, providing as much context as possible..."
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which version of the project are you using?
+      placeholder: "e.g., 1.0.0"
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: "Please share your environment details (if relevant):"
+      value: |
+        - Node.js version:
+        - Operating System:
+        - Package manager (npm/yarn/pnpm) and version:
+        - Any other relevant environment information:
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or code examples that might help us answer your question.
+      placeholder: "Any additional details that would help us understand your question better..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](../CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+        - label: I have searched the existing issues and confirmed this question hasn't been asked before
+          required: true

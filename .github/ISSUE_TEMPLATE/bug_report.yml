@@ -1,0 +1,69 @@
+name: Bug Report
+description: Report a problem or unexpected behavior
+title: "[BUG]: "
+labels: ["bugfix"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+        Please check our documentation first:
+        - [Security Policy](.github/SECURITY.md) (for security vulnerabilities)
+        - [Changelog](.github/CHANGELOG.md) (to see if this has been fixed in a newer version)
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Tell us what happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps To Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen
+      placeholder: Tell us what should have happened
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      placeholder: e.g. 1.1.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        Examples:
+        - **OS**: Ubuntu 20.04
+        - **Node**: 14.15.0
+        - **npm**: 6.14.8
+      value: |
+        - OS:
+        - Node:
+        - npm:
+    validations:
+      required: true

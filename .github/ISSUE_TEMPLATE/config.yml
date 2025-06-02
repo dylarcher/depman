@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-issue-config.json
+# filepath: ~/dev/nodeVersionRange/.github/ISSUE_TEMPLATE/config.yml
+blank_issues_enabled: true
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/darcher-/node-compat-range-analyzer/blob/main/README.md
+    about: Check the documentation before opening an issue
+  - name: 💬 Questions & Discussions
+    url: https://github.com/darcher-/node-compat-range-analyzer/discussions
+    about: Use GitHub Discussions for questions and discussions about the project
+  - name: 🚨 Report a Security Vulnerability
+    url: https://github.com/darcher-/node-compat-range-analyzer/blob/main/SECURITY.md
+    about: Report a security vulnerability using the defined process

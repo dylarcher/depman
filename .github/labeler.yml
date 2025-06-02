@@ -1,0 +1,496 @@
+---
+labels:
+  - color: 4285F4
+    description: 🤖 Pull requests that update GitHub Actions code
+    files:
+      - .github/**/*.yml
+      - .github/**/*.yaml
+      - .github/**/*.json
+      - .github/workflows/**
+      - .github/actions/**
+      - .github/workflows/*.yml
+      - .github/actions/*.js
+      - action.yml
+      - .github/action.yml
+    name: automation
+    ref: |
+      automation
+      github actions
+      workflows
+      ci
+      cd
+      pipeline
+      devops
+      continuous integration
+      continuous deployment
+  - color: FF5252
+    description: ⛔ Effort on hold
+    name: blocked
+    ref: |
+      on hold
+      blocked
+      blocker
+      waiting
+      postponed
+      delayed
+      pending
+      stalled
+      halt
+      paused
+      suspend
+      dependency blocker
+      awaiting input
+      blocked by
+  - color: FFC107
+    description: ⚠️ A change that will break the current functionality
+    files:
+      - compat/*
+      - src/**/*.js
+      - src/utils/*.js
+      - src/services/*.js
+    name: incompatible
+    ref: |
+      incompatible
+      support
+      not backwards compatible
+      breaking change
+      semver major
+      api change
+      interface change
+      deprecated
+      deprecation
+      migration required
+      upgrade path
+      backward incompatible
+      version bump
+      major version
+  - color: 00BFA5
+    description: 👀 Ready for review
+    name: review
+    ref: |
+      review
+      ready for review
+      code review
+      please review
+      pr ready
+      needs review
+      ready to merge
+      review needed
+      feedback wanted
+      for your review
+      review request
+  - color: F44336
+    description: 💥 Merge conflicts
+    name: conflict
+    ref: |
+      rebase
+      merge conflict
+      conflict
+      needs rebase
+      resolve conflicts
+      conflicts
+      git conflict
+      merge required
+      conflicting changes
+      branch conflicts
+  - color: E91E63
+    description: 🐛 Something isn't working
+    name: bugfix
+    files:
+      - src/**/*.js
+      - src/utils/*.js
+      - src/services/*.js
+    ref: |
+      bug
+      bugfix
+      fix
+      issue
+      warning
+      error
+      problem
+      defect
+      broken
+      not working
+      regression
+      crash
+      unexpected behavior
+      edge case
+      exception
+      failure
+      fault
+      glitch
+      incorrect
+      invalid
+      malfunction
+      mistake
+      unintended
+  - color: 9E9E9E
+    description: 🧹 A simple, remedial or mundane task
+    name: chore
+    files:
+      - .github/*
+      - .gitignore
+      - .eslintrc*
+      - .prettier*
+    ref: |
+      chore/*
+      chore
+      maintenance
+      housekeeping
+      cleanup
+      tidy
+      refactor
+      tooling
+      build
+      ci
+      routine
+      dependency update
+      version bump
+      toolchain
+      dependency
+  - color: 607D8B
+    description: ⚙️ configuration settings
+    files:
+      - .*
+      - "**/*.jsonl"
+      - "**/*.json5"
+      - "**/*.json"
+      - "**/*.yaml"
+      - "**/*.yml"
+      - "**/*.toml"
+      - "**/*.ini"
+      - "**/*.config.js"
+      - "**/*.config.ts"
+      - "config/**/*"
+      - ".env*"
+      - ".npmrc"
+      - ".nvmrc"
+      - ".babelrc*"
+      - "tsconfig.json"
+      - "jest.config.*"
+    name: config
+    ref: |
+      config
+      configuration
+      settings
+      setup
+      preferences
+      options
+      environment
+      env
+      dotfile
+      ini
+      toml
+      yaml
+      yml
+      json
+  - color: 3F51B5
+    description: 📦 Pull requests that update a dependency file
+    files:
+      - package.json
+      - package-lock.json
+      - npm-shrinkwrap.json
+      - yarn.lock
+      - pnpm-lock.yaml
+      - "**/*requirements*.txt"
+      - "Gemfile*"
+      - "Cargo.toml"
+      - "Cargo.lock"
+      - "go.mod"
+      - "go.sum"
+    name: dependency
+    ref: |
+      dependencies
+      deps
+      dependency
+      npm
+      yarn
+      pnpm
+      pip
+      gems
+      cargo
+      modules
+      packages
+      requirements
+      update dependencies
+      security update
+      version bump
+      dependency update
+  - color: 2196F3
+    description: 📝 Improvements or additions to documentation
+    files:
+      - \**/*.md
+      - .github/*.md
+      - .github/CHANGELOG.md
+      - .github/CONTRIBUTING.md
+      - .github/CODE_OF_CONDUCT.md
+      - .github/SECURITY.md
+      - .github/LICENSE.md
+      - .github/CITATION.md
+      - .github/CODEOWNERS.md
+      - docs/**/*.md
+    ref: |
+      documentation
+      docs
+      readme
+      guide
+      manual
+      tutorial
+      examples
+      comments
+      changelog
+      contributing
+      security
+      license
+      citation
+      codeowners
+      code of conduct
+      policy
+  - name: "duplicate"
+    description: "👯 This issue or pull request already exists"
+    color: "BDBDBD"
+  - name: "enhancement"
+    description: "✨ New feature or request"
+    color: "00BCD4"
+  - name: "good first issue"
+    description: "🔰 Good for newcomers"
+    color: "7B1FA2"
+  - name: "help wanted"
+    description: "🆘 Extra attention is needed"
+    color: "009688"
+  - name: "invalid"
+    description: "❌ This doesn't seem right"
+    color: "CDDC39"
+  - name: "logic"
+    description: "🧠 Pull requests that update javascript code"
+    color: "FF9800"
+    files:
+      - \**/*.js
+      - src/**/*.js
+      - src/utils/*.js
+      - src/services/*.js
+      - src/**/*.ts
+      - src/**/*.jsx
+      - src/**/*.tsx
+      - src/**/*.mjs
+      - src/**/*.cjs
+    ref: |
+      functional
+      js
+      javascript
+      nodejs
+      node.js
+      ts
+      typescript
+      ecmascript
+      v8
+      es6
+      es2015
+      es2016
+      es2017
+      es2018
+      es2019
+      es2020
+      es2021
+      react
+      jsx
+      module
+      commonjs
+      npm
+      yarn
+      pnpm
+      package
+  - color: 9C27B0
+    description: ❓ Further information is requested
+    name: inconclusive
+    ref: |
+      inconclusive
+      question
+      scope
+      wanting
+      ask
+      unclear
+      need more info
+      more details needed
+      cannot reproduce
+      ambiguous
+      vague
+      clarification
+      elaboration
+      explanation
+      details missing
+      insufficient information
+      context needed
+      steps to reproduce
+      please explain
+      needs clarification
+      what do you mean
+  - color: 03A9F4
+    description: 🎨 UI design change(s)
+    files:
+      - "**/*.css"
+      - "**/*.scss"
+      - "**/*.sass"
+      - "**/*.less"
+      - "**/*.styl"
+      - "**/*.svg"
+      - "**/*.png"
+      - "**/*.jpg"
+      - "**/*.jpeg"
+      - "**/*.gif"
+      - "**/*.webp"
+      - "src/shared/**/*.png"
+      - "src/shared/**/*.jpg"
+      - "src/shared/**/*.jpeg"
+      - "src/shared/**/*.svg"
+      - "docs/assets:media/**/*"
+      - "src/demo/**/*"
+    name: visual
+    ref: |
+      visual
+      media
+      image
+      video
+      graphics
+      art
+      vector
+      svg
+      png
+      jpg
+      jpeg
+      gif
+      animation
+      interface
+      ui
+      design
+      css
+      scss
+      sass
+      less
+      style
+      layout
+      theme
+      colors
+      fonts
+      typography
+      responsive
+      mobile
+      desktop
+      user experience
+      ux
+      accessibility
+      a11y
+      branding
+      appearance
+      dark mode
+      light mode
+      aesthetic
+      icon
+      logo
+      mockup
+      wireframe
+      prototype
+  - color: EEEEEE
+    description: 🚫 This will not be worked on
+    name: wontfix
+    ref: |
+      ignore
+      nonissue
+      non-issue
+      wontfix
+      won'tfix
+      won't
+      nofix
+      nope
+      no
+      closed
+      as designed
+      by desiågn
+      intended behavior
+      expected behavior
+      not a bug
+      declined
+      rejected
+      will not implement
+      no plans
+      out of scope
+      too complex
+      not feasible
+      not worth it
+      can't reproduce
+      cannot fix
+      low priority
+      duplicate functionality
+      unnecessary
+  - color: 673AB7
+    description: 🔢 Related to version ranges and semantic versioning
+    files:
+      - src/utils/semver.util.js
+      - src/**/*version*.js
+      - src/**/*semver*.js
+    name: semver
+    ref: |
+      semver
+      semantic versioning
+      version range
+      version constraint
+      version specification
+      major version
+      minor version
+      patch version
+      version compatibility
+      version requirement
+      versioning
+      version resolution
+      version selection
+      version conflict
+      version parsing
+  - color: 4CAF50
+    description: 🧪 Related to test coverage and improvements
+    files:
+      - test/**/*
+      - "**/*.test.js"
+      - "**/*.spec.js"
+      - jest.config.js
+      - mocha.opts
+    name: testing
+    ref: |
+      test
+      testing
+      unit test
+      integration test
+      e2e test
+      end-to-end test
+      coverage
+      jest
+      mocha
+      jasmine
+      chai
+      assert
+      expect
+      should
+      spec
+      fixture
+      mock
+      stub
+      spy
+  - color: FF5722
+    description: ⚡ Performance improvements and optimizations
+    name: performance
+    ref: |
+      performance
+      optimization
+      speed
+      benchmark
+      efficient
+      fast
+      slow
+      bottleneck
+      memory usage
+      cpu usage
+      resource usage
+      latency
+      throughput
+      profiling
+      load test
+      stress test

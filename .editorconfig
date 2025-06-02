@@ -1,4 +1,4 @@
-# We do not want to include unnecessary project files; however, yet
+# We do not want to include unnecessary project files; however,
 # at the very least, we need a baseline formatting configuration.
 
 root = true

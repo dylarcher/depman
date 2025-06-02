@@ -1,0 +1,155 @@
+{
+    "page": {
+        "title": "DepMan · NPM Dependency Manager—An Interactive Blueprint."
+    },
+    "header": {
+        "title": "DepMan Blueprint"
+    },
+    "nav": {
+        "overview": "Overview",
+        "architecture": "Architecture",
+        "functionality": "Functionality",
+        "techStack": "Tech Stack",
+        "workflow": "Workflow"
+    },
+    "overview": {
+        "title": "Project Dependency Manager",
+        "subtitle": "An interactive exploration of the architectural blueprint for a unified tool combining a core NPM library, a CLI, and a VSCode extension to streamline Node.js dependency management.",
+        "cardCoreLibTitle": "Core NPM Library",
+        "cardCoreLibDesc": "The central logic engine, encapsulating all dependency analysis, report generation, and project modification capabilities via a clean, modular API.",
+        "cardCliTitle": "Command-Line Interface (CLI)",
+        "cardCliDesc": "A terminal-based gateway for scriptable, direct interaction, offering dependency auditing, report viewing, and interactive update prompts.",
+        "cardVscodeTitle": "VSCode Extension",
+        "cardVscodeDesc": "A rich GUI integrated into the editor, providing \"right-click\" context menu access and visual reports for an enhanced developer workflow."
+    },
+    "architecture": {
+        "title": "Architectural Pillars",
+        "subtitle": "This project is built on a foundation of modern, robust technologies chosen to maximize maintainability, scalability, and developer experience. These core architectural decisions ensure a clean, comprehensible, and powerful system.",
+        "pillarTsTitle": "Language: TypeScript",
+        "pillarTsDesc": "For superior type safety, readability, and scalability. Essential for preventing runtime errors and providing excellent IDE support, especially for VSCode extension development.",
+        "pillarEsmTitle": "Module System: ESModules",
+        "pillarEsmDesc": "The modern JavaScript standard, enabling static analysis, top-level `await`, and ensuring future compatibility with the ecosystem.",
+        "pillarPnpmTitle": "Package Manager: PNPM",
+        "pillarPnpmDesc": "Chosen for its high performance, disk space efficiency, and strict dependency management, which is ideal for a complex monorepo structure.",
+        "pillarTurboTitle": "Build Orchestrator: Turborepo",
+        "pillarTurboDesc": "Provides high-performance build caching and parallel execution, dramatically speeding up tasks like building, testing, and linting across the monorepo."
+    },
+    "functionality": {
+        "title": "Core Functionality Breakdown",
+        "subtitle": "The system's logic is centralized in the Core Library and exposed through the CLI and VSCode Extension. Click on a component below to explore its specific functions and responsibilities.",
+        "cliBoxTitle": "CLI",
+        "cliBoxSubtitle": "Terminal Interface",
+        "coreLibBoxTitle": "Core Library",
+        "auditorBoxTitle": "Project Auditor",
+        "generatorBoxTitle": "Report Generator",
+        "modifierBoxTitle": "Project Modifier",
+        "vscodeBoxTitle": "VSCode Extension",
+        "vscodeBoxSubtitle": "GUI Interface",
+        "detailsPlaceholder": "Click a component in the diagram to see its details here."
+    },
+    "techStack": {
+        "title": "Technology Stack Explorer",
+        "subtitle": "The project leverages a curated set of modern tools and libraries. Click on a bar in the chart below to learn why each technology was chosen for its specific role in the development process.",
+        "detailsPlaceholder": "Click a technology in the chart to see its rationale.",
+        "datasetLabel": "Technology Stack",
+        "label": {
+            "typeScript": "TypeScript",
+            "pnpm": "PNPM",
+            "turborepo": "Turborepo",
+            "vitest": "Vitest",
+            "commanderjs": "Commander.js",
+            "semanticrelease": "semantic-release",
+            "githubactions": "GitHub Actions",
+            "biomeeslint": "Biome/ESLint"
+        },
+        "details": {
+            "typeScript": "A strongly typed superset of JavaScript, chosen for its ability to catch errors early, improve code quality, and enable robust tooling and scalability.",
+            "pnpm": "A fast, disk space-efficient package manager. Its strictness prevents phantom dependencies, making it ideal for managing a reliable monorepo.",
+            "turborepo": "A high-performance build system for monorepos. It caches build outputs and runs tasks in parallel, significantly speeding up the development and CI process.",
+            "vitest": "A modern, blazing-fast testing framework with a Jest-compatible API. It offers native ESM and TypeScript support out-of-the-box, simplifying test setup.",
+            "commanderjs": "A lightweight and effective library for building command-line interfaces. Its simplicity is perfect for defining the required CLI commands and options without unnecessary bloat.",
+            "semanticrelease": "Automates the entire release workflow, including version bumping, changelog generation, and package publishing, based on Conventional Commit messages.",
+            "githubactions": "The engine for CI/CD. It automates linting, testing, building, and publishing, ensuring code quality and enabling a streamlined, reliable release pipeline.",
+            "biomeeslint": "Tooling for enforcing code quality and consistency. Biome offers an integrated, high-performance solution, while ESLint provides a mature, highly configurable alternative for linting."
+        }
+    },
+    "workflow": {
+        "title": "Automated DevOps Lifecycle",
+        "subtitle": "A streamlined, automated workflow ensures code quality and rapid, reliable releases. Click each step to see the automated actions that occur.",
+        "step": {
+            "branch": { "title": "1. Branch", "subtitle": "Feature Development" },
+            "pr": { "title": "2. Pull Request", "subtitle": "Code Review" },
+            "ci": { "title": "3. CI Checks", "subtitle": "Automated Testing" },
+            "merge": { "title": "4. Merge", "subtitle": "Integrate to Main" },
+            "release": { "title": "5. Release", "subtitle": "Publish Packages" }
+        },
+        "details": {
+            "branch": {
+                "title": "Branch (Feature Development)",
+                "points": [
+                    "All new work is done on a dedicated feature branch created from `main`.",
+                    "Follows GitHub Flow for a simple and effective branching strategy.",
+                    "Commit messages adhere to the Conventional Commits specification to enable automated releases."
+                ]
+            },
+            "pr": {
+                "title": "Pull Request (Code Review)",
+                "points": [
+                    "When a feature is complete, a Pull Request (PR) is opened to merge into `main`.",
+                    "PRs serve as a crucial checkpoint for peer code review to ensure quality and maintainability.",
+                    "The PR automatically triggers the CI pipeline."
+                ]
+            },
+            "ci": {
+                "title": "CI Checks (Automated Testing & Validation)",
+                "points": [
+                    "Triggered by the PR, GitHub Actions runs a series of automated checks.",
+                    "This includes linting (Biome/ESLint), unit/integration tests (Vitest), and E2E tests.",
+                    "A PR cannot be merged unless all CI checks pass successfully."
+                ]
+            },
+            "merge": {
+                "title": "Merge (Integrate to Main)",
+                "points": [
+                    "Once the PR is approved and all checks have passed, the feature branch is merged into `main`.",
+                    "The `main` branch always represents a stable, production-ready state of the code.",
+                    "The merge to `main` can trigger the final release workflow."
+                ]
+            },
+            "release": {
+                "title": "Release (Publish Packages)",
+                "points": [
+                    "The `semantic-release` tool analyzes commits on `main` to determine the next version number.",
+                    "It automatically bumps the version, updates the `CHANGELOG.md`, creates a Git tag, and makes a GitHub Release.",
+                    "Finally, it publishes the new version of the NPM library to the private registry and the VSCode extension."
+                ]
+            }
+        }
+    },
+    "funcData": {
+        "cli": {
+            "title": "Command-Line Interface (CLI)",
+            "description": "Provides a scriptable, terminal-based interface for developers. It uses `Commander.js` for command parsing and `Inquirer.js` for rich interactive prompts, delegating all core logic to the NPM library."
+        },
+        "vscode": {
+            "title": "VSCode Extension",
+            "description": "Integrates directly into the developer's editor, providing GUI access to all functionalities. Uses VSCode APIs for context menus, Webviews for rich reports, and QuickPicks for interactive selections."
+        },
+        "auditor": {
+            "title": "Project Auditor Module",
+            "description": "The data collection engine. It crawls `package.json` and `node_modules`, fetches metadata from the NPM registry using `npm-registry-fetch`, and analyzes Node.js/NPM version compatibility."
+        },
+        "generator": {
+            "title": "Report Generator Module",
+            "description": "Takes the raw audit data and transforms it into a well-structured JSON report. This JSON serves as the single source of truth for both the CLI's console output and the VSCode extension's webview."
+        },
+        "modifier": {
+            "title": "Project Modifier Module",
+            "description": "Handles all file system changes. It programmatically updates `package.json` and executes package manager commands (e.g., `pnpm install`) to apply dependency updates or change `engines` constraints."
+        }
+    },
+    "footer": {
+        "generatedOn": "Interactive Architectural Blueprint. Generated on",
+        "dateLocale": "en-US"
+    }
+}

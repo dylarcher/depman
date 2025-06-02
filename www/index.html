@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en-US" class="scroll-smooth" data-i18n-title="page.title">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1">
+    <title>DepMan Blueprint</title> <!-- Placeholder, will be replaced by JS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="main.js" type="module"></script>
+</head>
+
+<body>
+    <div class="bg-stone-50 text-stone-800">
+
+        <header id="header" class="bg-stone-50/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <span class="font-bold text-lg text-blue-600" data-i18n="header.title">DepMan Blueprint</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#overview"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
+                                data-i18n="nav.overview">Overview</a>
+                            <a href="#architecture"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
+                                data-i18n="nav.architecture">Architecture</a>
+                            <a href="#functionality"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
+                                data-i18n="nav.functionality">Functionality</a>
+                            <a href="#stack"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
+                                data-i18n="nav.techStack">Tech
+                                Stack</a>
+                            <a href="#workflow"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
+                                data-i18n="nav.workflow">Workflow</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+
+            <section id="overview" class="py-16 text-center section-fade-in">
+                <h1 class="text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl" data-i18n="overview.title">
+                    Project Dependency Manager</h1>
+                <p class="mt-6 text-lg leading-8 text-stone-600 max-w-3xl mx-auto" data-i18n="overview.subtitle">An
+                    interactive exploration of the
+                    architectural blueprint for a unified tool combining a core NPM library, a CLI, and a VSCode
+                    extension
+                    to streamline Node.js dependency management.</p>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
+                        <div
+                            class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mb-4">
+                            <span class="text-2xl font-bold">❒</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-stone-900" data-i18n="overview.cardCoreLibTitle">Core NPM
+                            Library</h3>
+                        <p class="mt-2 text-stone-600" data-i18n="overview.cardCoreLibDesc">The central logic engine,
+                            encapsulating all dependency analysis,
+                            report generation, and project modification capabilities via a clean, modular API.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
+                        <div
+                            class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mb-4">
+                            <span class="text-2xl font-mono">&gt;_</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-stone-900" data-i18n="overview.cardCliTitle">Command-Line
+                            Interface (CLI)</h3>
+                        <p class="mt-2 text-stone-600" data-i18n="overview.cardCliDesc">A terminal-based gateway for
+                            scriptable, direct interaction,
+                            offering
+                            dependency auditing, report viewing, and interactive update prompts.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
+                        <div
+                            class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mb-4">
+                            <span class="text-2xl">🧩</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-stone-900" data-i18n="overview.cardVscodeTitle">VSCode
+                            Extension</h3>
+                        <p class="mt-2 text-stone-600" data-i18n="overview.cardVscodeDesc">A rich GUI integrated into
+                            the editor, providing "right-click"
+                            context menu access and visual reports for an enhanced developer workflow.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="border-t border-stone-200 my-16"></div>
+
+            <section id="architecture" class="py-16 section-fade-in">
+                <h2 class="text-3xl font-bold text-center text-stone-900" data-i18n="architecture.title">Architectural
+                    Pillars</h2>
+                <p class="mt-4 text-center text-lg text-stone-600 max-w-3xl mx-auto" data-i18n="architecture.subtitle">
+                    This project is built on a
+                    foundation
+                    of modern, robust technologies chosen to maximize maintainability, scalability, and developer
+                    experience. These core architectural decisions ensure a clean, comprehensible, and powerful system.
+                </p>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-stone-100 p-6 rounded-lg border border-stone-200">
+                        <h3 class="font-semibold text-stone-900" data-i18n="architecture.pillarTsTitle">Language:
+                            TypeScript</h3>
+                        <p class="mt-2 text-sm text-stone-600" data-i18n="architecture.pillarTsDesc">For superior type
+                            safety, readability, and scalability.
+                            Essential for preventing runtime errors and providing excellent IDE support, especially for
+                            VSCode extension development.</p>
+                    </div>
+                    <div class="bg-stone-100 p-6 rounded-lg border border-stone-200">
+                        <h3 class="font-semibold text-stone-900" data-i18n="architecture.pillarEsmTitle">Module System:
+                            ESModules</h3>
+                        <p class="mt-2 text-sm text-stone-600" data-i18n="architecture.pillarEsmDesc">The modern
+                            JavaScript standard, enabling static analysis,
+                            top-level `await`, and ensuring future compatibility with the ecosystem.</p>
+                    </div>
+                    <div class="bg-stone-100 p-6 rounded-lg border border-stone-200">
+                        <h3 class="font-semibold text-stone-900" data-i18n="architecture.pillarPnpmTitle">Package
+                            Manager: PNPM</h3>
+                        <p class="mt-2 text-sm text-stone-600" data-i18n="architecture.pillarPnpmDesc">Chosen for its
+                            high performance, disk space efficiency,
+                            and
+                            strict dependency management, which is ideal for a complex monorepo structure.</p>
+                    </div>
+                    <div class="bg-stone-100 p-6 rounded-lg border border-stone-200">
+                        <h3 class="font-semibold text-stone-900" data-i18n="architecture.pillarTurboTitle">Build
+                            Orchestrator: Turborepo</h3>
+                        <p class="mt-2 text-sm text-stone-600" data-i18n="architecture.pillarTurboDesc">Provides
+                            high-performance build caching and parallel
+                            execution, dramatically speeding up tasks like building, testing, and linting across the
+                            monorepo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="border-t border-stone-200 my-16"></div>
+
+            <section id="functionality" class="py-16 section-fade-in">
+                <h2 class="text-3xl font-bold text-center text-stone-900" data-i18n="functionality.title">Core
+                    Functionality Breakdown</h2>
+                <p class="mt-4 text-center text-lg text-stone-600 max-w-3xl mx-auto" data-i18n="functionality.subtitle">
+                    The system's logic is centralized
+                    in
+                    the Core Library and exposed through the CLI and VSCode Extension. Click on a component below to
+                    explore
+                    its specific functions and responsibilities.</p>
+                <div class="mt-12 bg-white border border-stone-200 rounded-lg p-8">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                        <div id="func-cli"
+                            class="func-item text-center p-4 border-2 border-dashed border-stone-300 rounded-lg cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
+                            <h4 class="font-semibold text-lg" data-i18n="functionality.cliBoxTitle">CLI</h4>
+                            <p class="text-sm text-stone-500" data-i18n="functionality.cliBoxSubtitle">Terminal
+                                Interface</p>
+                        </div>
+
+                        <div class="w-16 h-1 bg-stone-300 hidden md:block"></div>
+
+                        <div class="flex flex-col gap-4 text-center border-2 border-stone-400 rounded-lg p-6">
+                            <h3 class="font-bold text-xl text-blue-600" data-i18n="functionality.coreLibBoxTitle">Core
+                                Library</h3>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <div id="func-auditor"
+                                    class="func-item p-3 border border-stone-300 rounded-md cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
+                                    <h5 class="font-semibold" data-i18n="functionality.auditorBoxTitle">Project Auditor
+                                    </h5>
+                                </div>
+                                <div id="func-generator"
+                                    class="func-item p-3 border border-stone-300 rounded-md cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
+                                    <h5 class="font-semibold" data-i18n="functionality.generatorBoxTitle">Report
+                                        Generator</h5>
+                                </div>
+                                <div id="func-modifier"
+                                    class="func-item p-3 border border-stone-300 rounded-md cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
+                                    <h5 class="font-semibold" data-i18n="functionality.modifierBoxTitle">Project
+                                        Modifier</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-16 h-1 bg-stone-300 hidden md:block"></div>
+
+                        <div id="func-vscode"
+                            class="func-item text-center p-4 border-2 border-dashed border-stone-300 rounded-lg cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
+                            <h4 class="font-semibold text-lg" data-i18n="functionality.vscodeBoxTitle">VSCode Extension
+                            </h4>
+                            <p class="text-sm text-stone-500" data-i18n="functionality.vscodeBoxSubtitle">GUI Interface
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="functionality-details"
+                        class="mt-8 p-6 bg-stone-100/70 rounded-lg min-h-[120px] transition-opacity duration-300">
+                        <p class="text-stone-600 text-center" data-i18n="functionality.detailsPlaceholder">Click a
+                            component in the diagram to see its details here.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="border-t border-stone-200 my-16"></div>
+
+            <section id="stack" class="py-16 section-fade-in">
+                <h2 class="text-3xl font-bold text-center text-stone-900" data-i18n="techStack.title">Technology Stack
+                    Explorer</h2>
+                <p class="mt-4 text-center text-lg text-stone-600 max-w-3xl mx-auto" data-i18n="techStack.subtitle">The
+                    project leverages a curated set
+                    of
+                    modern tools and libraries. Click on a bar in the chart below to learn why each technology was
+                    chosen
+                    for its specific role in the development process.</p>
+                <div class="mt-12 bg-white p-4 md:p-8 border border-stone-200 rounded-lg">
+                    <div class="chart-container">
+                        <canvas id="techStackChart"></canvas>
+                    </div>
+                    <div id="stack-details" class="mt-8 p-6 bg-stone-100/70 rounded-lg min-h-[100px]">
+                        <p class="text-stone-600 text-center" data-i18n="techStack.detailsPlaceholder">Click a
+                            technology in the chart to see its rationale.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="border-t border-stone-200 my-16"></div>
+
+            <section id="workflow" class="py-16 section-fade-in">
+                <h2 class="text-3xl font-bold text-center text-stone-900" data-i18n="workflow.title">Automated DevOps
+                    Lifecycle</h2>
+                <p class="mt-4 text-center text-lg text-stone-600 max-w-3xl mx-auto" data-i18n="workflow.subtitle">A
+                    streamlined, automated workflow
+                    ensures code quality and rapid, reliable releases. Click each step to see the automated actions that
+                    occur.</p>
+                <div class="mt-12">
+                    <div class="flex flex-col md:flex-row items-center justify-center text-center">
+                        <div class="workflow-step" data-step="branch">
+                            <div class="p-4 bg-white border-2 border-blue-500 rounded-lg shadow-sm cursor-pointer">
+                                <h4 class="font-semibold" data-i18n="workflow.step.branch.title">1. Branch</h4>
+                                <p class="text-sm text-stone-500" data-i18n="workflow.step.branch.subtitle">Feature
+                                    Development</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow hidden md:flex items-center">
+                            <div class="flow-line bg-stone-300"></div>
+                        </div>
+                        <div class="h-8 w-px bg-stone-300 md:hidden"></div>
+                        <div class="workflow-step" data-step="pr">
+                            <div
+                                class="p-4 bg-white border border-stone-300 rounded-lg shadow-sm cursor-pointer hover:border-blue-500">
+                                <h4 class="font-semibold" data-i18n="workflow.step.pr.title">2. Pull Request</h4>
+                                <p class="text-sm text-stone-500" data-i18n="workflow.step.pr.subtitle">Code Review</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow hidden md:flex items-center">
+                            <div class="flow-line bg-stone-300"></div>
+                        </div>
+                        <div class="h-8 w-px bg-stone-300 md:hidden"></div>
+                        <div class="workflow-step" data-step="ci">
+                            <div
+                                class="p-4 bg-white border border-stone-300 rounded-lg shadow-sm cursor-pointer hover:border-blue-500">
+                                <h4 class="font-semibold" data-i18n="workflow.step.ci.title">3. CI Checks</h4>
+                                <p class="text-sm text-stone-500" data-i18n="workflow.step.ci.subtitle">Automated
+                                    Testing</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow hidden md:flex items-center">
+                            <div class="flow-line bg-stone-300"></div>
+                        </div>
+                        <div class="h-8 w-px bg-stone-300 md:hidden"></div>
+                        <div class="workflow-step" data-step="merge">
+                            <div
+                                class="p-4 bg-white border border-stone-300 rounded-lg shadow-sm cursor-pointer hover:border-blue-500">
+                                <h4 class="font-semibold" data-i18n="workflow.step.merge.title">4. Merge</h4>
+                                <p class="text-sm text-stone-500" data-i18n="workflow.step.merge.subtitle">Integrate to
+                                    Main</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow hidden md:flex items-center">
+                            <div class="flow-line bg-stone-300"></div>
+                        </div>
+                        <div class="h-8 w-px bg-stone-300 md:hidden"></div>
+                        <div class="workflow-step" data-step="release">
+                            <div
+                                class="p-4 bg-white border border-stone-300 rounded-lg shadow-sm cursor-pointer hover:border-blue-500">
+                                <h4 class="font-semibold" data-i18n="workflow.step.release.title">5. Release</h4>
+                                <p class="text-sm text-stone-500" data-i18n="workflow.step.release.subtitle">Publish
+                                    Packages</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="workflow-details" class="mt-8 p-6 bg-stone-100/70 rounded-lg min-h-[120px]">
+                        <!-- Content populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="border-t border-stone-200 mt-16">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-500">
+                <p><span data-i18n="footer.generatedOn">Interactive Architectural Blueprint. Generated on</span> <span
+                        id="generation-date"></span>.</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

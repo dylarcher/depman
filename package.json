@@ -1,0 +1,31 @@
+{
+  "name": "depman",
+  "version": "1.0.0",
+  "description": "A powerful CLI tool and IDE extension to streamline project dependencies and NodeJS version maintenance.",
+  "main": "src/index.js",
+  "source": "demo/index.html",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "packageManager": "pnpm@8.6.0",
+  "engines": {
+    "node": ">=22.16.0",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">=8.6.0",
+    "bun": "please-use-pnpm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylarcher/depman.git"
+  },
+  "keywords": [ ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dylarcher/depman/issues"
+  },
+  "homepage": "https://dylarcher.github.io/depman",
+  "documentation": "https://github.com/dylarcher/depman#readme"
+}

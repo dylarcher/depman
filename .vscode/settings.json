@@ -1,0 +1,153 @@
+{
+    "IDX.aI.enableCodebaseIndexing": true,
+    "IDX.aI.enableInlineCompletion": true,
+    "[yaml]": {
+        "editor.codeActionsOnSave": {
+            "source.addMissingImports": "always",
+            "source.organizeImports": "always",
+            "source.fixAll": "always",
+            "source.fixAll.yaml-sort": "explicit"
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[css]": {
+        "editor.codeActionsOnSave": {
+            "source.addMissingImports": "always",
+            "source.fixAll": "always",
+            "source.fixAll.cssPeek": "explicit",
+            "source.organizeImports": "always"
+        },
+        "editor.defaultFormatter": "vscode.css-language-features",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[html]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always"
+        },
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.codeActionsOnSave": {
+            "source.addMissingImports": "always",
+            "source.fixAll": "always",
+            "source.organizeImports": "always"
+        },
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always",
+            "source.fixAll.sort-json": "explicit"
+        },
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[markdown]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always",
+            "source.fixAll.markdownlint": "explicit"
+        },
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "css.format.enable": true,
+    "css.validate": true,
+    "editor.detectIndentation": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.inlineSuggest.showToolbar": "onHover",
+    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
+    "editor.insertSpaces": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.screenReaderAnnounceInlineSuggestion": true,
+    "editor.suggest.localityBonus": true,
+    "editor.suggest.showColors": true,
+    "editor.suggest.showCustomcolors": true,
+    "editor.suggest.showDeprecated": true,
+    "editor.suggest.showFiles": true,
+    "editor.suggest.showFolders": true,
+    "editor.suggest.showFunctions": true,
+    "editor.suggest.showIcons": true,
+    "editor.suggest.showKeywords": true,
+    "editor.suggest.showMethods": true,
+    "editor.suggest.showReferences": true,
+    "editor.suggest.showSnippets": true,
+    "editor.suggest.showStatusBar": true,
+    "editor.suggest.showTypeParameters": true,
+    "editor.suggest.showValues": true,
+    "editor.suggest.showVariables": true,
+    "editor.suggest.showWords": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 2,
+    "editor.wordBasedSuggestions": "currentDocument",
+    "html.format.enable": true,
+    "html.validate.scripts": true,
+    "html.validate.styles": true,
+    "javascript.format.enable": true,
+    "javascript.validate.enable": true,
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "js/ts.implicitProjectConfig.experimentalDecorators": false,
+    "js/ts.implicitProjectConfig.module": "ESNext",
+    "js/ts.implicitProjectConfig.strictFunctionTypes": true,
+    "js/ts.implicitProjectConfig.strictNullChecks": true,
+    "js/ts.implicitProjectConfig.target": "ESNext",
+    "json.format.enable": true,
+    "markdownlint.config": {
+        "MD041": false,
+        "MD013": false,
+        "default": true,
+        "rules": {
+            "MD024": { "style": "consistent" },
+            "MD029": { "style": "ordered" }
+        }
+    },
+    "sortJSON.contextMenu": {
+        "sortJSON": true,
+        "sortJSONAlphaNum": false,
+        "sortJSONAlphaNumReverse": false,
+        "sortJSONKeyLength": false,
+        "sortJSONKeyLengthReverse": false,
+        "sortJSONReverse": false,
+        "sortJSONType": false,
+        "sortJSONTypeReverse": false,
+        "sortJSONValues": false,
+        "sortJSONValuesReverse": false
+    },
+    "sortJSON.excludedFiles": [
+        "package.json",
+        "package-lock.json",
+        "npm-shrinkwrap.json"
+    ],
+    "sortJSON.excludedPaths": [
+        "**/node_modules/*"
+    ],
+    "yaml.format.enable": true,
+    "yaml.validate": true,
+    "yaml.customTags": [
+        "!include",
+        "!include_str",
+        "!include_yaml",
+        "!include_json",
+        "!include_file",
+        "!include_file_str",
+        "!include_file_yaml",
+        "!include_file_json"
+    ],
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/helm/charts/master/stable/values.schema.json": "/*.yaml"
+    }
+}

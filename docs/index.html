@@ -1,314 +1,520 @@
-<!doctype html>
-<html lang="en-US" class="scroll-smooth" data-i18n-title="page.title">
+<!DOCTYPE html&lt;2>>
+
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1">
-    <title>DepMan Blueprint</title> <!-- Placeholder, will be replaced by JS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>depman: A Strategic Blueprint for Advanced NPM Dependency Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="main.js" type="module"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #073B4C;
+            color: #F0F4F8;
+        }
+    
+        .chart-container {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    
+        .stat-number {
+            font-weight: 900;
+            color: #06D6A0;
+            text-shadow: 0 0 15px rgba(6, 214, 160, 0.5);
+        }
+    
+        .flow-line {
+            background-color: #118AB2;
+        }
+    
+        .flow-arrow::after {
+            content: '▼';
+            color: #118AB2;
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="bg-stone-50 text-stone-800">
+<body class="antialiased">
 
-        <header id="header" class="bg-stone-50/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <div class="flex items-center">
-                        <span class="font-bold text-lg text-blue-600" data-i18n="header.title">DepMan Blueprint</span>
-                    </div>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <a href="#overview"
-                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
-                                data-i18n="nav.overview">Overview</a>
-                            <a href="#architecture"
-                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
-                                data-i18n="nav.architecture">Architecture</a>
-                            <a href="#functionality"
-                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
-                                data-i18n="nav.functionality">Functionality</a>
-                            <a href="#stack"
-                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
-                                data-i18n="nav.techStack">Tech
-                                Stack</a>
-                            <a href="#workflow"
-                                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-blue-600 transition-colors"
-                                data-i18n="nav.workflow">Workflow</a>
-                        </div>
+    <header class="text-center py-16 px-4 bg-gradient-to-b from-[#073B4C] to-[#0a4a61]">
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight">depman</h1>
+        <p class="mt-4 text-xl md:text-2xl font-light text-[#FFD166]">A Strategic Blueprint for Advanced NPM Dependency
+            Management</p>
+    </header>
+    
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-12">
+    
+        <section id="vision" class="text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">The Challenge & The Vision</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12">
+                In the vast Node.js ecosystem, managing dependencies is a critical yet complex task. Developers face
+                "update paralysis" and "discovery fatigue." `depman` is envisioned as an indispensable CLI tool to
+                simplify this process, offering intelligent updates and actionable insights.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-xl p-6">
+                    <p class="stat-number text-5xl">90%</p>
+                    <p class="mt-2 text-gray-300">Of modern application code comes from dependencies.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <p class="stat-number text-5xl">2M+</p>
+                    <p class="mt-2 text-gray-300">Packages available on the NPM registry, creating immense complexity.
+                    </p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <p class="stat-number text-5xl">40%</p>
+                    <p class="mt-2 text-gray-300">Of developers' time can be saved with smarter dependency management.
+                    </p>
+                </div>
+                </div>
+        </section>
+
+        <section id="landscape">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">Market Landscape & `depman`'s Edge</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Feature Comparison</h3>
+                    <p class="text-gray-300 mb-6">While tools like `npm update` and `ncu` focus on versioning, `depman`
+                        provides a holistic, intelligent solution that goes beyond simple updates.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-gray-300">
+                            <thead class="bg-white/10 text-xs uppercase">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">Feature</th>
+                                    <th scope="col" class="px-6 py-3 text-center">npm / ncu</th>
+                                    <th scope="col" class="px-6 py-3 text-center text-[#06D6A0]">depman</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-white/10">
+                                    <td class="px-6 py-4 font-medium">Version Updates</td>
+                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                </tr>
+                                <tr class="border-b border-white/10">
+                                    <td class="px-6 py-4 font-medium">Interactive Report</td>
+                                    <td class="px-6 py-4 text-center">Limited</td>
+                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                </tr>
+                                <tr class="border-b border-white/10">
+                                    <td class="px-6 py-4 font-medium">Alternative Suggestions</td>
+                                    <td class="px-6 py-4 text-center text-2xl text-[#FF6B6B]">✗</td>
+                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                </tr>
+                                <tr class="border-b border-white/10">
+                                    <td class="px-6 py-4 font-medium">Integrated Vulnerability Data</td>
+                                    <td class="px-6 py-4 text-center text-2xl text-[#FF6B6B]">✗</td>
+                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-medium">Comprehensive Lockfile Support</td>
+                                    <td class="px-6 py-4 text-center">Partial</td>
+                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </nav>
-        </header>
-
-        <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-
-            <section id="overview" class="py-16 text-center section-fade-in">
-                <h1 class="text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl" data-i18n="overview.title">
-                    Project Dependency Manager</h1>
-                <p class="mt-6 text-lg leading-8 text-stone-600 max-w-3xl mx-auto" data-i18n="overview.subtitle">An
-                    interactive exploration of the
-                    architectural blueprint for a unified tool combining a core NPM library, a CLI, and a VSCode
-                    extension
-                    to streamline Node.js dependency management.</p>
-                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
-                        <div
-                            class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mb-4">
-                            <span class="text-2xl font-bold">❒</span>
-                        </div>
-                        <h3 class="text-lg font-semibold text-stone-900" data-i18n="overview.cardCoreLibTitle">Core NPM
-                            Library</h3>
-                        <p class="mt-2 text-stone-600" data-i18n="overview.cardCoreLibDesc">The central logic engine,
-                            encapsulating all dependency analysis,
-                            report generation, and project modification capabilities via a clean, modular API.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
-                        <div
-                            class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mb-4">
-                            <span class="text-2xl font-mono">&gt;_</span>
-                        </div>
-                        <h3 class="text-lg font-semibold text-stone-900" data-i18n="overview.cardCliTitle">Command-Line
-                            Interface (CLI)</h3>
-                        <p class="mt-2 text-stone-600" data-i18n="overview.cardCliDesc">A terminal-based gateway for
-                            scriptable, direct interaction,
-                            offering
-                            dependency auditing, report viewing, and interactive update prompts.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
-                        <div
-                            class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600 mb-4">
-                            <span class="text-2xl">🧩</span>
-                        </div>
-                        <h3 class="text-lg font-semibold text-stone-900" data-i18n="overview.cardVscodeTitle">VSCode
-                            Extension</h3>
-                        <p class="mt-2 text-stone-600" data-i18n="overview.cardVscodeDesc">A rich GUI integrated into
-                            the editor, providing "right-click"
-                            context menu access and visual reports for an enhanced developer workflow.</p>
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white text-center mb-4">`depman`'s Value Proposition</h3>
+                    <p class="text-gray-300 mb-4 text-center">`depman`'s value is centered on providing actionable
+                        intelligence, moving beyond simple updates to strategic dependency evolution.</p>
+                    <div class="chart-container w-full h-80 max-w-sm mx-auto">
+                        <canvas id="valuePropositionChart"></canvas>
                     </div>
                 </div>
-            </section>
+                </div>
+                </section>
 
-            <div class="border-t border-stone-200 my-16"></div>
+        <section id="architecture">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">Core Architecture: A Modular Design</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                `depman` is built on a modular architecture, ensuring extensibility and maintainability. Each component
+                has a distinct responsibility, from parsing lockfiles to executing updates.
+            </p>
+            <div class="flex flex-col items-center space-y-2">
+                <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
+                    <h3 class="font-bold text-lg text-[#FFD166]">1. Lockfile/Manifest Parser Module</h3>
+                    <p class="text-sm text-gray-300">Reads `package.json`, `yarn.lock`, `bun.lock`, etc.</p>
+                </div>
+                <div class="flow-arrow"></div>
+                <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
+                    <h3 class="font-bold text-lg text-[#FFD166]">2. Registry Interaction Module</h3>
+                    <p class="text-sm text-gray-300">Fetches package metadata from NPM registry.</p>
+                </div>
+                <div class="flow-arrow"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-3/4 text-center relative">
+                    <div class="absolute h-0.5 flow-line top-1/2 left-0 right-0 transform -translate-y-1/2 hidden md:block">
+                    </div>
+                    <div class="absolute w-0.5 flow-line top-0 h-8 left-1/2 transform -translate-x-1/2 hidden md:block">
+                    </div>
+                    <div class="md:col-span-3 flow-arrow hidden md:block"></div>
 
-            <section id="architecture" class="py-16 section-fade-in">
-                <h2 class="text-3xl font-bold text-center text-stone-900" data-i18n="architecture.title">Architectural
-                    Pillars</h2>
-                <p class="mt-4 text-center text-lg text-stone-600 max-w-3xl mx-auto" data-i18n="architecture.subtitle">
-                    This project is built on a
-                    foundation
-                    of modern, robust technologies chosen to maximize maintainability, scalability, and developer
-                    experience. These core architectural decisions ensure a clean, comprehensible, and powerful system.
-                </p>
-                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-stone-100 p-6 rounded-lg border border-stone-200">
-                        <h3 class="font-semibold text-stone-900" data-i18n="architecture.pillarTsTitle">Language:
-                            TypeScript</h3>
-                        <p class="mt-2 text-sm text-stone-600" data-i18n="architecture.pillarTsDesc">For superior type
-                            safety, readability, and scalability.
-                            Essential for preventing runtime errors and providing excellent IDE support, especially for
-                            VSCode extension development.</p>
+                    <div class="glass-card rounded-lg p-4 z-10">
+                        <h3 class="font-bold text-md text-[#FFD166]">3a. Version Analysis</h3>
+                        <p class="text-xs text-gray-300">Identifies patch, minor, major updates.</p>
                     </div>
-                    <div class="bg-stone-100 p-6 rounded-lg border border-stone-200">
-                        <h3 class="font-semibold text-stone-900" data-i18n="architecture.pillarEsmTitle">Module System:
-                            ESModules</h3>
-                        <p class="mt-2 text-sm text-stone-600" data-i18n="architecture.pillarEsmDesc">The modern
-                            JavaScript standard, enabling static analysis,
-                            top-level `await`, and ensuring future compatibility with the ecosystem.</p>
+                    <div class="md:hidden flow-arrow"></div>
+                    <div class="glass-card rounded-lg p-4 z-10">
+                        <h3 class="font-bold text-md text-[#FFD166]">3b. Alternative Suggestions</h3>
+                        <p class="text-xs text-gray-300">Finds modern, secure replacements.</p>
                     </div>
-                    <div class="bg-stone-100 p-6 rounded-lg border border-stone-200">
-                        <h3 class="font-semibold text-stone-900" data-i18n="architecture.pillarPnpmTitle">Package
-                            Manager: PNPM</h3>
-                        <p class="mt-2 text-sm text-stone-600" data-i18n="architecture.pillarPnpmDesc">Chosen for its
-                            high performance, disk space efficiency,
-                            and
-                            strict dependency management, which is ideal for a complex monorepo structure.</p>
-                    </div>
-                    <div class="bg-stone-100 p-6 rounded-lg border border-stone-200">
-                        <h3 class="font-semibold text-stone-900" data-i18n="architecture.pillarTurboTitle">Build
-                            Orchestrator: Turborepo</h3>
-                        <p class="mt-2 text-sm text-stone-600" data-i18n="architecture.pillarTurboDesc">Provides
-                            high-performance build caching and parallel
-                            execution, dramatically speeding up tasks like building, testing, and linting across the
-                            monorepo.</p>
+                    <div class="md:hidden flow-arrow"></div>
+                    <div class="glass-card rounded-lg p-4 z-10">
+                        <h3 class="font-bold text-md text-[#FFD166]">3c. Vulnerability Assessment</h3>
+                        <p class="text-xs text-gray-300">Checks against security databases.</p>
                     </div>
                 </div>
-            </section>
-
-            <div class="border-t border-stone-200 my-16"></div>
-
-            <section id="functionality" class="py-16 section-fade-in">
-                <h2 class="text-3xl font-bold text-center text-stone-900" data-i18n="functionality.title">Core
-                    Functionality Breakdown</h2>
-                <p class="mt-4 text-center text-lg text-stone-600 max-w-3xl mx-auto" data-i18n="functionality.subtitle">
-                    The system's logic is centralized
-                    in
-                    the Core Library and exposed through the CLI and VSCode Extension. Click on a component below to
-                    explore
-                    its specific functions and responsibilities.</p>
-                <div class="mt-12 bg-white border border-stone-200 rounded-lg p-8">
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-                        <div id="func-cli"
-                            class="func-item text-center p-4 border-2 border-dashed border-stone-300 rounded-lg cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
-                            <h4 class="font-semibold text-lg" data-i18n="functionality.cliBoxTitle">CLI</h4>
-                            <p class="text-sm text-stone-500" data-i18n="functionality.cliBoxSubtitle">Terminal
-                                Interface</p>
-                        </div>
-
-                        <div class="w-16 h-1 bg-stone-300 hidden md:block"></div>
-
-                        <div class="flex flex-col gap-4 text-center border-2 border-stone-400 rounded-lg p-6">
-                            <h3 class="font-bold text-xl text-blue-600" data-i18n="functionality.coreLibBoxTitle">Core
-                                Library</h3>
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <div id="func-auditor"
-                                    class="func-item p-3 border border-stone-300 rounded-md cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
-                                    <h5 class="font-semibold" data-i18n="functionality.auditorBoxTitle">Project Auditor
-                                    </h5>
-                                </div>
-                                <div id="func-generator"
-                                    class="func-item p-3 border border-stone-300 rounded-md cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
-                                    <h5 class="font-semibold" data-i18n="functionality.generatorBoxTitle">Report
-                                        Generator</h5>
-                                </div>
-                                <div id="func-modifier"
-                                    class="func-item p-3 border border-stone-300 rounded-md cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
-                                    <h5 class="font-semibold" data-i18n="functionality.modifierBoxTitle">Project
-                                        Modifier</h5>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w-16 h-1 bg-stone-300 hidden md:block"></div>
-
-                        <div id="func-vscode"
-                            class="func-item text-center p-4 border-2 border-dashed border-stone-300 rounded-lg cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all">
-                            <h4 class="font-semibold text-lg" data-i18n="functionality.vscodeBoxTitle">VSCode Extension
-                            </h4>
-                            <p class="text-sm text-stone-500" data-i18n="functionality.vscodeBoxSubtitle">GUI Interface
-                            </p>
-                        </div>
-                    </div>
-
-                    <div id="functionality-details"
-                        class="mt-8 p-6 bg-stone-100/70 rounded-lg min-h-[120px] transition-opacity duration-300">
-                        <p class="text-stone-600 text-center" data-i18n="functionality.detailsPlaceholder">Click a
-                            component in the diagram to see its details here.
-                        </p>
-                    </div>
+                <div class="flow-arrow"></div>
+                <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
+                    <h3 class="font-bold text-lg text-[#FFD166]">4. Report Generation Module</h3>
+                    <p class="text-sm text-gray-300">Structures data for the interactive CLI.</p>
                 </div>
-            </section>
-
-            <div class="border-t border-stone-200 my-16"></div>
-
-            <section id="stack" class="py-16 section-fade-in">
-                <h2 class="text-3xl font-bold text-center text-stone-900" data-i18n="techStack.title">Technology Stack
-                    Explorer</h2>
-                <p class="mt-4 text-center text-lg text-stone-600 max-w-3xl mx-auto" data-i18n="techStack.subtitle">The
-                    project leverages a curated set
-                    of
-                    modern tools and libraries. Click on a bar in the chart below to learn why each technology was
-                    chosen
-                    for its specific role in the development process.</p>
-                <div class="mt-12 bg-white p-4 md:p-8 border border-stone-200 rounded-lg">
-                    <div class="chart-container">
-                        <canvas id="techStackChart"></canvas>
-                    </div>
-                    <div id="stack-details" class="mt-8 p-6 bg-stone-100/70 rounded-lg min-h-[100px]">
-                        <p class="text-stone-600 text-center" data-i18n="techStack.detailsPlaceholder">Click a
-                            technology in the chart to see its rationale.</p>
-                    </div>
+                <div class="flow-arrow"></div>
+                <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
+                    <h3 class="font-bold text-lg text-[#FFD166]">5. Update Execution Module</h3>
+                    <p class="text-sm text-gray-300">Modifies `package.json` and runs install.</p>
                 </div>
-            </section>
-
-            <div class="border-t border-stone-200 my-16"></div>
-
-            <section id="workflow" class="py-16 section-fade-in">
-                <h2 class="text-3xl font-bold text-center text-stone-900" data-i18n="workflow.title">Automated DevOps
-                    Lifecycle</h2>
-                <p class="mt-4 text-center text-lg text-stone-600 max-w-3xl mx-auto" data-i18n="workflow.subtitle">A
-                    streamlined, automated workflow
-                    ensures code quality and rapid, reliable releases. Click each step to see the automated actions that
-                    occur.</p>
-                <div class="mt-12">
-                    <div class="flex flex-col md:flex-row items-center justify-center text-center">
-                        <div class="workflow-step" data-step="branch">
-                            <div class="p-4 bg-white border-2 border-blue-500 rounded-lg shadow-sm cursor-pointer">
-                                <h4 class="font-semibold" data-i18n="workflow.step.branch.title">1. Branch</h4>
-                                <p class="text-sm text-stone-500" data-i18n="workflow.step.branch.subtitle">Feature
-                                    Development</p>
-                            </div>
-                        </div>
-                        <div class="flow-arrow hidden md:flex items-center">
-                            <div class="flow-line bg-stone-300"></div>
-                        </div>
-                        <div class="h-8 w-px bg-stone-300 md:hidden"></div>
-                        <div class="workflow-step" data-step="pr">
-                            <div
-                                class="p-4 bg-white border border-stone-300 rounded-lg shadow-sm cursor-pointer hover:border-blue-500">
-                                <h4 class="font-semibold" data-i18n="workflow.step.pr.title">2. Pull Request</h4>
-                                <p class="text-sm text-stone-500" data-i18n="workflow.step.pr.subtitle">Code Review</p>
-                            </div>
-                        </div>
-                        <div class="flow-arrow hidden md:flex items-center">
-                            <div class="flow-line bg-stone-300"></div>
-                        </div>
-                        <div class="h-8 w-px bg-stone-300 md:hidden"></div>
-                        <div class="workflow-step" data-step="ci">
-                            <div
-                                class="p-4 bg-white border border-stone-300 rounded-lg shadow-sm cursor-pointer hover:border-blue-500">
-                                <h4 class="font-semibold" data-i18n="workflow.step.ci.title">3. CI Checks</h4>
-                                <p class="text-sm text-stone-500" data-i18n="workflow.step.ci.subtitle">Automated
-                                    Testing</p>
-                            </div>
-                        </div>
-                        <div class="flow-arrow hidden md:flex items-center">
-                            <div class="flow-line bg-stone-300"></div>
-                        </div>
-                        <div class="h-8 w-px bg-stone-300 md:hidden"></div>
-                        <div class="workflow-step" data-step="merge">
-                            <div
-                                class="p-4 bg-white border border-stone-300 rounded-lg shadow-sm cursor-pointer hover:border-blue-500">
-                                <h4 class="font-semibold" data-i18n="workflow.step.merge.title">4. Merge</h4>
-                                <p class="text-sm text-stone-500" data-i18n="workflow.step.merge.subtitle">Integrate to
-                                    Main</p>
-                            </div>
-                        </div>
-                        <div class="flow-arrow hidden md:flex items-center">
-                            <div class="flow-line bg-stone-300"></div>
-                        </div>
-                        <div class="h-8 w-px bg-stone-300 md:hidden"></div>
-                        <div class="workflow-step" data-step="release">
-                            <div
-                                class="p-4 bg-white border border-stone-300 rounded-lg shadow-sm cursor-pointer hover:border-blue-500">
-                                <h4 class="font-semibold" data-i18n="workflow.step.release.title">5. Release</h4>
-                                <p class="text-sm text-stone-500" data-i18n="workflow.step.release.subtitle">Publish
-                                    Packages</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="workflow-details" class="mt-8 p-6 bg-stone-100/70 rounded-lg min-h-[120px]">
-                        <!-- Content populated by JS -->
-                    </div>
                 </div>
-            </section>
+        </section>
 
-        </main>
-
-        <footer class="border-t border-stone-200 mt-16">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-500">
-                <p><span data-i18n="footer.generatedOn">Interactive Architectural Blueprint. Generated on</span> <span
-                        id="generation-date"></span>.</p>
+        <section id="lockfiles">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">Comprehensive Lockfile Support</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                A key strength of `depman` is its ability to parse a wide array of lockfile formats, ensuring
+                compatibility across the diverse Node.js ecosystem regardless of the chosen package manager.
+            </p>
+            <div class="glass-card rounded-xl p-6">
+                <div class="chart-container w-full h-96 max-w-4xl mx-auto">
+                    <canvas id="lockfileSupportChart"></canvas>
+                </div>
+                <p class="text-center text-gray-400 mt-4 text-sm">This chart illustrates the variety of formats `depman`
+                    is designed to handle, reflecting different structures from JSON to custom text and YAML-like
+                    formats, which poses a significant parsing challenge.</p>
             </div>
-        </footer>
+        </section>
 
+        <section id="intelligence">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">The Intelligence Engine</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                `depman` moves beyond simple version bumping by ranking potential updates and suggesting superior
+                alternatives based on a variety of health metrics.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white text-center mb-4">Ranking Criteria for Alternatives</h3>
+                    <p class="text-gray-300 mb-4 text-center">Suggestions are not random; they are ranked by factors
+                        that ensure quality and reliability.</p>
+                    <div class="chart-container w-full h-96 max-w-lg mx-auto">
+                        <canvas id="rankingCriteriaChart"></canvas>
+                    </div>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Example: Strategic Replacement</h3>
+                    <p class="text-gray-300 mb-6">`depman` identifies problematic packages and proposes modern,
+                        efficient alternatives with clear justifications.</p>
+                    <div class="space-y-4">
+                        <div class="bg-red-500/20 border border-red-500 rounded-lg p-4">
+                            <h4 class="font-bold">Current: <span class="text-red-300">momentjs</span></h4>
+                            <ul class="list-disc list-inside text-sm mt-2 text-red-200">
+                                <li>Legacy, large bundle size</li>
+                                <li>Maintenance mode</li>
+                                <li>Encourages mutability</li>
+                            </ul>
+                        </div>
+                        <div class="text-center text-2xl font-bold text-white">→</div>
+                        <div class="bg-green-500/20 border border-green-500 rounded-lg p-4">
+                            <h4 class="font-bold">Suggestion: <span class="text-green-300">dayjs</span></h4>
+                            <ul class="list-disc list-inside text-sm mt-2 text-green-200">
+                                <li>Modern, ~2KB bundle size</li>
+                                <li>Actively maintained</li>
+                                <li>Immutable, largely compatible API</li>
+                            </ul>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </section>
+
+        <section id="roadmap">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">Development Roadmap</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                `depman` will be developed iteratively, delivering value at each stage while building towards a
+                comprehensive, feature-rich tool.
+            </p>
+            <div class="relative wrap overflow-hidden p-10 h-full">
+                <div class="absolute h-full border border-dashed border-opacity-20 border-white" style="left: 50%">
+                </div>
+
+                <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-[#FF6B6B] shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                    </div>
+                    <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <h3 class="font-bold text-white text-lg">Phase 1: MVP</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-300">Core support for `npm`, basic
+                            interactive report, and safe update execution.</p>
+                    </div>
+                </div>
+<div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+    <div class="order-1 w-5/12"></div>
+    <div class="z-20 flex items-center order-1 bg-[#FFD166] shadow-xl w-8 h-8 rounded-full">
+        <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
     </div>
+                    <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <h3 class="font-bold text-white text-lg">Phase 2: Core Value</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-300">Add `yarn` support, basic
+                            alternative suggestions, and integrated vulnerability scanning.</p>
+                    </div>
+                </div>
+<div class="mb-8 flex justify-between items-center w-full right-timeline">
+    <div class="order-1 w-5/12"></div>
+    <div class="z-20 flex items-center order-1 bg-[#06D6A0] shadow-xl w-8 h-8 rounded-full">
+        <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                    </div>
+                    <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <h3 class="font-bold text-white text-lg">Phase 3: Intelligence</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-300">Add `bun` support, advanced
+                            heuristics for alternatives, and rich user configuration.</p>
+                    </div>
+                </div>
+<div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+    <div class="order-1 w-5/12"></div>
+    <div class="z-20 flex items-center order-1 bg-[#118AB2] shadow-xl w-8 h-8 rounded-full">
+        <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                    </div>
+                    <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <h3 class="font-bold text-white text-lg">Future</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-300">Full monorepo support, plugin
+                            architecture, license checking, and test suite integration.</p>
+                    </div>
+                </div>
+                </div>
+                </section>
+
+    </main>
+
+    <footer class="text-center py-12 px-4 mt-16 border-t border-white/10">
+        <p class="text-gray-400">`depman` aims to transform dependency management from a chore into a strategic
+            advantage.</p>
+    </footer>
+
+    <script>
+        (function() {
+            const wrapLabel = (str, maxWidth) => {
+                if (str.length <= maxWidth) {
+                    return str
+                }
+                const words = str.split(' ')
+                const lines = []
+                let currentLine = words[0]
+
+                for (let i = 1; i < words.length; i++) {
+                    if ((currentLine + ' ' + words[i]).length > maxWidth) {
+                        lines.push(currentLine)
+                        currentLine = words[i]
+                    } else {
+                        currentLine += ' ' + words[i]
+                    }
+                }
+                lines.push(currentLine)
+                return lines
+            }
+
+            const chartTooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0]
+                let label = item.chart.data.labels[item.dataIndex]
+                if (Array.isArray(label)) {
+                    return label.join(' ')
+                } else {
+                    return label
+                }
+            }
+
+            const sharedChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#F0F4F8'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: chartTooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#94A3B8' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    x: {
+                        ticks: { color: '#94A3B8' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    }
+                }
+            }
+
+            const palette = {
+                red: '#FF6B6B',
+                yellow: '#FFD166',
+                green: '#06D6A0',
+                blue: '#118AB2',
+                darkBlue: '#073B4C'
+            }
+
+            const renderValuePropositionChart = () => {
+                const ctx = document.getElementById('valuePropositionChart')?.getContext('2d')
+                if (!ctx) return
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Alternative Suggestions', 'Vulnerability Insights', 'Unified Reporting', 'Update Automation'],
+                        datasets: [{
+                            label: 'Value Proposition',
+                            data: [35, 25, 20, 20],
+                            backgroundColor: [palette.green, palette.red, palette.yellow, palette.blue],
+                            borderColor: palette.darkBlue,
+                            borderWidth: 4,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { color: '#F0F4F8' }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: chartTooltipTitleCallback
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+
+            const renderLockfileSupportChart = () => {
+                const ctx = document.getElementById('lockfileSupportChart')?.getContext('2d')
+                if (!ctx) return
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'package-lock.json',
+                            'yarn.lock (Classic)',
+                            wrapLabel('yarn.lock (Berry v2+)', 16),
+                            'bun.lock (Text)',
+                            wrapLabel('npm-shrinkwrap.json', 16),
+                            'bun.lockb (Binary)'
+                        ],
+                        datasets: [{
+                            label: 'Relative Parsing Complexity',
+                            data: [4, 7, 6, 3, 4, 10],
+                            backgroundColor: [
+                                palette.blue,
+                                palette.blue,
+                                palette.blue,
+                                palette.green,
+                                palette.blue,
+                                palette.yellow
+                            ],
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: { ...sharedChartOptions, indexAxis: 'y' }
+                })
+            }
+
+            const renderRankingCriteriaChart = () => {
+                const ctx = document.getElementById('rankingCriteriaChart')?.getContext('2d')
+                if (!ctx) return
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'Maintenance Status',
+                            'Popularity',
+                            wrapLabel('Vulnerability Profile', 16),
+                            wrapLabel('License Compatibility', 16),
+                            wrapLabel('Bundle Size', 16)
+                        ],
+                        datasets: [{
+                            label: 'Importance Weight',
+                            data: [9, 7, 10, 8, 6],
+                            fill: true,
+                            backgroundColor: 'rgba(6, 214, 160, 0.2)',
+                            borderColor: palette.green,
+                            pointBackgroundColor: palette.green,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: palette.green
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: chartTooltipTitleCallback
+                                }
+                            }
+                        },
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 10,
+                                angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                                pointLabels: {
+                                    color: '#F0F4F8',
+                                    font: { size: 12 }
+                                },
+                                ticks: {
+                                    color: '#94A3B8',
+                                    backdropColor: 'transparent',
+                                    stepSize: 2
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                renderValuePropositionChart()
+                renderLockfileSupportChart()
+                renderRankingCriteriaChart()
+            })
+        })();
+    </script>
 </body>
 
 </html>

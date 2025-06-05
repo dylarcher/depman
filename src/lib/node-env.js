@@ -62,7 +62,7 @@ function calculateSupportedNodeVersions(constraints) {
   let compatibleVersions = testVersions.filter(v =>
       validConstraints.every(c => semver.satisfies(v, c, { includePrerelease: true }))
   );
-  if (compatibleVersions.length === 0) return null;
+  if (compatibleVersions.length === 0) return { min: null, max: null, range: null };
   compatibleVersions.sort(semver.compare);
   const minVersion = compatibleVersions[0];
   const maxVersion = compatibleVersions[compatibleVersions.length - 1];
@@ -159,8 +159,13 @@ function identifyNodeOutliers(enrichedDependencies, projectNodeRange, rootProjec
         }
     });
     if (constraintsWithoutCurrentDep.length === 0 && !rootProjectConstraint) {
-        // If this was the *only* constraint, removing it means any node version is fine.
-        // This scenario needs careful thought on how to define "wider".
+        // If this was the *only* constraint, report it as an outlier.
+        outliers.push({
+            packageName: dep.name, packageVersion: dep.version,
+            packageNodeConstraint: constraintToTest,
+            impact: `Was the sole constraint defining the project's Node.js range. Removing it allows any Node.js version.`,
+            rangeWithoutOutlier: { min: null, max: null } // Represents an undefined or overly broad range
+        });
         continue;
     }
 

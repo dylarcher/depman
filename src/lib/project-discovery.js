@@ -38,7 +38,7 @@ function discoverSubProjects(rootDir, depth = 2) {
       if (entry.isDirectory()) {
         // Check if this directory itself is a project (contains package.json)
         // Only add if it's not the initial rootDir being scanned (we are looking for *sub*-projects)
-        if (currentDir !== rootDir || entryPath !== rootDir) { // Check to ensure it's a sub-directory
+        if (currentDir !== rootDir && entryPath !== rootDir) { // Check to ensure it's a sub-directory
              const packageJsonPath = path.join(entryPath, 'package.json');
              if (fs.existsSync(packageJsonPath)) {
                 // Store the path relative to the initial rootDir

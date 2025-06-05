@@ -33,7 +33,7 @@ function getDependencyType(packageName, allEnrichedDeps) {
       return 'dependencies';
     }
   }
-  return 'dependencies'; // Default if not found (e.g. new package)
+  return 'dependencies';
 }
 
 function modifyPackageJsonContentForUpdate(packageJsonContent, packageName, targetVersion, depType) {
@@ -44,10 +44,8 @@ function modifyPackageJsonContentForUpdate(packageJsonContent, packageName, targ
       const indent = packageJsonContent.match(/^(\s+)"name":/m)?.[1]?.length || 2;
       return JSON.stringify(packageJson, null, indent);
     }
-    // console.error(`Error: Dependency ${packageName} not found in ${depType} of package.json.`);
     return null;
   } catch (error) {
-    // console.error(`Error parsing or modifying package.json content for update: ${error.message}`);
     return null;
   }
 }
@@ -55,24 +53,16 @@ function modifyPackageJsonContentForUpdate(packageJsonContent, packageName, targ
 function modifyPackageJsonContentForReplacement(packageJsonContent, originalPackageName, alternativePackageName, alternativePackageVersion, originalDepType) {
   try {
     const packageJson = JSON.parse(packageJsonContent);
-    // Remove original package
     if (packageJson[originalDepType] && packageJson[originalDepType][originalPackageName]) {
       delete packageJson[originalDepType][originalPackageName];
-    } else {
-      // console.warn(`Original package ${originalPackageName} not found in ${originalDepType} during replacement.`);
     }
-
-    // Add alternative package - assuming it's a production dependency for now
-    // This could be smarter if alternative suggestions carry type info
-    if (!packageJson.dependencies) {
+    if (!packageJson.dependencies) { // Assume new alternatives are prod deps for now
       packageJson.dependencies = {};
     }
     packageJson.dependencies[alternativePackageName] = alternativePackageVersion;
-
     const indent = packageJsonContent.match(/^(\s+)"name":/m)?.[1]?.length || 2;
     return JSON.stringify(packageJson, null, indent);
   } catch (error) {
-    // console.error(`Error parsing or modifying package.json content for replacement: ${error.message}`);
     return null;
   }
 }
@@ -131,10 +121,12 @@ async function applyUpdates(projectPath, updatesToApply, allEnrichedDeps) {
         try {
           console.log(chalk.yellow(`  Rolling back package.json and package-lock.json for ${update.name}...`));
           fs.writeFileSync(packageJsonPath, originalPackageJson, 'utf8');
-          if (originalLockfile || fs.existsSync(lockfilePath)) { // If lockfile existed OR was created by failed install
+          if (originalLockfile || fs.existsSync(lockfilePath)) {
              fs.writeFileSync(lockfilePath, originalLockfile, 'utf8');
           }
           console.log(chalk.yellowBright(`  Rollback successful for ${update.name}.`));
+          // Added recommendation for consistency with replacements
+          console.log(chalk.cyan("  Consider running 'npm install' manually to ensure your node_modules directory is consistent."));
         } catch (rollbackError) {
           console.error(chalk.redBright(`  CRITICAL: Rollback FAILED for ${update.name}: ${rollbackError.message}`));
         }
@@ -163,8 +155,6 @@ async function applyReplacements(projectPath, replacementsToApply, allEnrichedDe
       originalLockfile = fs.existsSync(lockfilePath) ? fs.readFileSync(lockfilePath, 'utf8') : '';
 
       const originalDepType = getDependencyType(rep.originalPackageName, allEnrichedDeps);
-
-      // Modify package.json (remove old, add new)
       const newPackageJsonContent = modifyPackageJsonContentForReplacement(
         originalPackageJson, rep.originalPackageName,
         rep.alternativePackageName, rep.alternativePackageVersion, originalDepType
@@ -175,20 +165,14 @@ async function applyReplacements(projectPath, replacementsToApply, allEnrichedDe
       packageJsonModified = true;
       console.log(chalk.dim(`  Modified package.json: removed ${rep.originalPackageName}, added ${rep.alternativePackageName}.`));
 
-      // Uninstall old package
       let uninstallCommand = `npm uninstall ${rep.originalPackageName}`;
-      // Npm default is --save for uninstall, which removes from dependencies.
-      // If it was a devDep, --save-dev ensures it's removed from devDependencies.
       if (originalDepType === 'devDependencies') uninstallCommand += ' --save-dev';
       else if (originalDepType === 'optionalDependencies') uninstallCommand += ' --save-optional';
-      // else --save is implied for production deps.
 
       console.log(chalk.dim(`  Running: ${uninstallCommand}`));
       await runNpmCommand(uninstallCommand, projectPath);
       console.log(chalk.dim(`  Uninstalled ${rep.originalPackageName}.`));
 
-      // Install new package
-      // Assuming new package is a production dependency. This could be more nuanced.
       const installCommand = `npm install ${rep.alternativePackageName}@${rep.alternativePackageVersion} --save`;
       console.log(chalk.dim(`  Running: ${installCommand}`));
       await runNpmCommand(installCommand, projectPath);
@@ -219,11 +203,10 @@ async function applyReplacements(projectPath, replacementsToApply, allEnrichedDe
   return { successfulReplacements, failedReplacements };
 }
 
-
 module.exports = {
   applyUpdates,
-  applyReplacements, // Added export
-  _modifyPackageJsonContent: modifyPackageJsonContentForUpdate, // Renamed for clarity
-  _modifyPackageJsonContentForReplacement: modifyPackageJsonContentForReplacement, // Added for testing
+  applyReplacements,
+  _modifyPackageJsonContent: modifyPackageJsonContentForUpdate,
+  _modifyPackageJsonContentForReplacement: modifyPackageJsonContentForReplacement,
   _getDependencyType: getDependencyType,
 };

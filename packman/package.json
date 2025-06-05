@@ -4,7 +4,7 @@
   "description": "A CLI tool to help keep NodeJS projects up to date and aligned with industry standards.",
   "main": "src/lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "keywords": [
     "nodejs",
@@ -21,5 +21,8 @@
     "chalk": "^4.1.2",
     "inquirer": "^8.2.6",
     "semver": "^7.7.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

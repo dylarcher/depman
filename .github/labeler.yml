@@ -1,4 +1,3 @@
----
 labels:
   - color: 4285F4
     description: 🤖 Pull requests that update GitHub Actions code
@@ -95,11 +94,11 @@ labels:
       branch conflicts
   - color: E91E63
     description: 🐛 Something isn't working
-    name: bugfix
     files:
       - src/**/*.js
       - src/utils/*.js
       - src/services/*.js
+    name: bugfix
     ref: |
       bug
       bugfix
@@ -126,12 +125,12 @@ labels:
       unintended
   - color: 9E9E9E
     description: 🧹 A simple, remedial or mundane task
-    name: chore
     files:
       - .github/*
       - .gitignore
       - .eslintrc*
       - .prettier*
+    name: chore
     ref: |
       chore/*
       chore
@@ -152,22 +151,22 @@ labels:
     description: ⚙️ configuration settings
     files:
       - .*
-      - "**/*.jsonl"
-      - "**/*.json5"
-      - "**/*.json"
-      - "**/*.yaml"
-      - "**/*.yml"
-      - "**/*.toml"
-      - "**/*.ini"
-      - "**/*.config.js"
-      - "**/*.config.ts"
-      - "config/**/*"
-      - ".env*"
-      - ".npmrc"
-      - ".nvmrc"
-      - ".babelrc*"
-      - "tsconfig.json"
-      - "jest.config.*"
+      - '**/*.jsonl'
+      - '**/*.json5'
+      - '**/*.json'
+      - '**/*.yaml'
+      - '**/*.yml'
+      - '**/*.toml'
+      - '**/*.ini'
+      - '**/*.config.js'
+      - '**/*.config.ts'
+      - config/**/*
+      - .env*
+      - .npmrc
+      - .nvmrc
+      - .babelrc*
+      - tsconfig.json
+      - jest.config.*
     name: config
     ref: |
       config
@@ -192,12 +191,12 @@ labels:
       - npm-shrinkwrap.json
       - yarn.lock
       - pnpm-lock.yaml
-      - "**/*requirements*.txt"
-      - "Gemfile*"
-      - "Cargo.toml"
-      - "Cargo.lock"
-      - "go.mod"
-      - "go.sum"
+      - '**/*requirements*.txt'
+      - Gemfile*
+      - Cargo.toml
+      - Cargo.lock
+      - go.mod
+      - go.sum
     name: dependency
     ref: |
       dependencies
@@ -246,24 +245,23 @@ labels:
       codeowners
       code of conduct
       policy
-  - name: "duplicate"
-    description: "👯 This issue or pull request already exists"
-    color: "BDBDBD"
-  - name: "enhancement"
-    description: "✨ New feature or request"
-    color: "00BCD4"
-  - name: "good first issue"
-    description: "🔰 Good for newcomers"
-    color: "7B1FA2"
-  - name: "help wanted"
-    description: "🆘 Extra attention is needed"
-    color: "009688"
-  - name: "invalid"
-    description: "❌ This doesn't seem right"
-    color: "CDDC39"
-  - name: "logic"
-    description: "🧠 Pull requests that update javascript code"
-    color: "FF9800"
+  - color: BDBDBD
+    description: 👯 This issue or pull request already exists
+    name: duplicate
+  - color: 00BCD4
+    description: ✨ New feature or request
+    name: enhancement
+  - color: 7B1FA2
+    description: 🔰 Good for newcomers
+    name: good first issue
+  - color: 009688
+    description: 🆘 Extra attention is needed
+    name: help wanted
+  - color: CDDC39
+    description: ❌ This doesn't seem right
+    name: invalid
+  - color: FF9800
+    description: 🧠 Pull requests that update javascript code
     files:
       - \**/*.js
       - src/**/*.js
@@ -274,6 +272,7 @@ labels:
       - src/**/*.tsx
       - src/**/*.mjs
       - src/**/*.cjs
+    name: logic
     ref: |
       functional
       js
@@ -328,23 +327,23 @@ labels:
   - color: 03A9F4
     description: 🎨 UI design change(s)
     files:
-      - "**/*.css"
-      - "**/*.scss"
-      - "**/*.sass"
-      - "**/*.less"
-      - "**/*.styl"
-      - "**/*.svg"
-      - "**/*.png"
-      - "**/*.jpg"
-      - "**/*.jpeg"
-      - "**/*.gif"
-      - "**/*.webp"
-      - "src/shared/**/*.png"
-      - "src/shared/**/*.jpg"
-      - "src/shared/**/*.jpeg"
-      - "src/shared/**/*.svg"
-      - "docs/assets:media/**/*"
-      - "src/demo/**/*"
+      - '**/*.css'
+      - '**/*.scss'
+      - '**/*.sass'
+      - '**/*.less'
+      - '**/*.styl'
+      - '**/*.svg'
+      - '**/*.png'
+      - '**/*.jpg'
+      - '**/*.jpeg'
+      - '**/*.gif'
+      - '**/*.webp'
+      - src/shared/**/*.png
+      - src/shared/**/*.jpg
+      - src/shared/**/*.jpeg
+      - src/shared/**/*.svg
+      - docs/assets:media/**/*
+      - src/demo/**/*
     name: visual
     ref: |
       visual
@@ -449,8 +448,8 @@ labels:
     description: 🧪 Related to test coverage and improvements
     files:
       - test/**/*
-      - "**/*.test.js"
-      - "**/*.spec.js"
+      - '**/*.test.js'
+      - '**/*.spec.js'
       - jest.config.js
       - mocha.opts
     name: testing

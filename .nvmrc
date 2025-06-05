@@ -1,1 +1,3 @@
-lts/*
+# Expected NodeJS Version
+
+v18.20.8 # Run `nvm use` to set this version

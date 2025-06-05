@@ -1,0 +1,72 @@
+jobs:
+  update-changelog:
+    name: Update Changelog
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+      - id: pr-info
+        name: Extract PR number
+        run: |
+          # Workflow is triggered on pull_request, so github.event.pull_request.number is available.
+          echo "pr_number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+      - id: generate-commits
+        name: Generate commit history since base branch
+        run: |
+          # Initial checkout with fetch-depth: 0 makes all history available.
+          TEMP_FILE=$(mktemp)
+          git log --pretty=format:"- %s (%h) by %an" origin/${{ github.base_ref }}..origin/${{ github.head_ref }} -- . > $TEMP_FILE
+          COMMIT_COUNT=$(wc -l < $TEMP_FILE | tr -d ' ')
+          echo "commit_count=$COMMIT_COUNT" >> $GITHUB_OUTPUT
+          COMMIT_HISTORY=$(cat $TEMP_FILE)
+          echo "commit_history<<EOF" >> $GITHUB_OUTPUT
+          echo "$COMMIT_HISTORY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: steps.generate-commits.outputs.commit_count != '0'
+        name: Update CHANGELOG.md
+        run: |
+          TODAY=$(date +"%Y-%m-%d")
+          PR_TITLE=$(gh pr view ${{ steps.pr-info.outputs.pr_number }} --json title -q .title)
+          NEW_ENTRY="## [Unreleased] - PR #${{ steps.pr-info.outputs.pr_number }}: ${PR_TITLE} - $TODAY\n\n### Changes\n\n${{ steps.generate-commits.outputs.commit_history }}\n\n"
+          sed -i '8i\\' .github/CHANGELOG.md
+          sed -i "9i$NEW_ENTRY" .github/CHANGELOG.md
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: steps.generate-commits.outputs.commit_count != '0'
+        name: Commit and push changes
+        run: |
+          git add .github/CHANGELOG.md
+          git commit -m "Update CHANGELOG.md for PR #${{ steps.pr-info.outputs.pr_number }}" || echo "No changes to commit"
+          git push origin HEAD:${{ github.head_ref }}
+      - if: steps.generate-commits.outputs.commit_count != '0'
+        name: Comment on PR with summary
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: ${{ steps.pr-info.outputs.pr_number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## Changelog Updated\n\nThe CHANGELOG.md has been automatically updated with the following commits from this PR:\n\n```\n${{ steps.generate-commits.outputs.commit_history }}\n```\n\nView the full changelog: [CHANGELOG.md](.github/CHANGELOG.md)'
+            });
+name: Automated Changelog Update
+on:
+  pull_request:
+    branches:
+      - deploy/
+      - main
+    types: [opened, reopened, synchronize]

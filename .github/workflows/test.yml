@@ -1,0 +1,15 @@
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: NodeJS environment setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: NodeJS dependency setup
+        run: npm ci
+      - name: Test project source code
+        run: npm test
+name: Suite
+on: [pull_request]

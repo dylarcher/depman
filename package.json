@@ -7,22 +7,25 @@
   "bugs": {
     "url": "https://github.com/dylarcher/packman-cli/issues"
   },
-  "description": "A powerful CLI tool and IDE extension to streamline project dependencies and NodeJS version maintenance.",
+  "description": "A CLI tool to help keep NodeJS projects up to date and aligned with industry standards.",
+  "dependencies": {
+    "yargs": "18.0.0",
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.6",
+    "semver": "^7.7.2"
+  },
   "devDependencies": {
     "@types/node": "22.15.30",
     "@types/yargs": "17.0.33"
   },
   "directories": {
     ".github": ".github",
-    "bin": "bin",
     "dist": "dist",
-    "doc": "docs",
+    "docs": "docs",
     "lib": "lib",
     "node_modules": "node_modules",
-    "res": "res",
     "src": "src",
-    "test": "test",
-    "types": "types"
+    "test": "test"
   },
   "engines": {
     "node": ">=20.19.2",
@@ -57,11 +60,14 @@
   "optionalDependencies": {
     "@types/chrome": "0.0.326",
     "@types/vscode": "1.100.0",
-    "c8": "10.1.3"
+    "c8": "10.1.3",
+    "glob": "11.0.2",
+    "rimraf": "6.0.1"
   },
   "packageManager": "npm@10.8.2",
   "peerDependencies": {
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "yargs-parser": "22.0.0"
   },
   "private": true,
   "publishConfig": {
@@ -73,16 +79,15 @@
     "url": "git+https://github.com/dylarcher/packman-cli.git"
   },
   "scripts": {
-    "build": "echo \"Run github-action for building\" && exit 1",
-    "build:maps": "echo \"Run github-action for building source maps\" && exit 1",
-    "build:types": "echo \"Run github-action for building types\" && exit 1",
-    "clean": "echo \"Run github-action for cleaning\" && exit 1",
-    "format": "echo \"Run github-action for formatting \" && exit 1",
-    "lint": "echo \"Run github-action for linting\" && exit 1",
-    "test": "echo \"Run github-action for testing\" && exit 1",
-    "test:coverage": "echo \"Run github-action for test:coverage\" && exit 1"
+    "build": "tsc --declaration --declarationMap false --emitDeclarationOnly false --outDir dist --declarationDir dist/types --moduleResolution node --module esnext --target esnext --sourceMap true --inlineSourceMap true && npm run bundle:types",
+    "bundle:types": "dts-bundle-generator -o dist/types.d.ts src/**/*.ts",
+    "clean": "npm run clean:dist && npm run clean:libs",
+    "clean:dist": "rimraf dist lib test/coverage .vscode-test types",
+    "clean:libs": "rimraf node_modules package-lock.json .cache/npm",
+    "format": "biome format -- --config-path .github/configs/biome.json src && markdownlint --config .github/configs/.markdownlintrc -- **/*.md",
+    "lint": "biome lint -- --config-path .github/configs/biome.json src && yamllint -- -c .github/configs/yamllint.yaml .github/**/*.yml",
+    "test": "c8 --config .github/configs/.c8rc.json node --test"
   },
-  "sideEffects": false,
   "type": "module",
   "version": "0.1.0"
 }

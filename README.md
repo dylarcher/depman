@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# packman
+>>>>>>> 6f631ea (Add 'How To Use Packman' section to documentation)
 
 # PACKMAN
 

@@ -115,391 +115,443 @@
                     </p>
                 </div>
             </div>
+            <<<<<<< HEAD <<<<<<< HEAD=======<<<<<<< HEAD <<<<<<< HEAD>>>>>>> 70b9e0d (Add 'How To Use Packman' section
+                to
+                documentation)
+                =======
+                <<<<<<< HEAD <<<<<<< HEAD <<<<<<< HEAD>>>>>>> feb12b7 (Update docs/index.html)
         </section>
+        =======
+        </section> <!-- id="architecture" -->
+        <<<<<<< HEAD>>>>>>> 6f631ea (Add 'How To Use Packman' section to documentation)
+            =======
+            >>>>>>> 6f631ea (Add 'How To Use Packman' section to documentation)
+            =======
+            </section>
+            >>>>>>> bf7ccd6 (Update docs/index.html)
+            >>>>>>> feb12b7 (Update docs/index.html)
 
-        <section id="how-to-use" class="text-center">
-            <h2 class="text-3xl font-bold text-white text-center mb-8">How To Use Packman</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
-                Get started with Packman by following these installation and usage instructions. Packman's interactive
-                CLI will guide you through modernizing your NodeJS projects.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div class="glass-card rounded-xl p-6 text-left">
-                    <h3 class="text-xl font-bold text-white mb-4">Installation</h3>
-                    <h4 class="text-lg font-semibold text-[#FFD166] mb-2">Global Installation (Recommended)</h4>
-                    <pre
-                        class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 overflow-x-auto"><code>npm install -g packman</code></pre>
-                    <p class="text-xs text-gray-400 mt-1 mb-4">(Once published to npm)</p>
-
-                    <h4 class="text-lg font-semibold text-[#FFD166] mb-2">Local Development/Testing</h4>
-                    <ol class="list-decimal list-inside text-gray-300 space-y-1 text-sm">
-                        <li>Clone the repository:
-                            <pre
-                                class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>git clone https://github.com/your-username/packman.git</code></pre>
-                            <span class="text-xs text-gray-400">(Replace with the actual repository URL)</span>
-                        </li>
-                        <li>Navigate to the project directory:
-                            <pre
-                                class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>cd packman</code></pre>
-                        </li>
-                        <li>Install dependencies:
-                            <pre
-                                class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>npm install</code></pre>
-                        </li>
-                        <li>Link the package:
-                            <pre
-                                class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>npm link</code></pre>
-                        </li>
-                    </ol>
-                </div>
-
-                <div class="glass-card rounded-xl p-6 text-left">
-                    <h3 class="text-xl font-bold text-white mb-4">Basic Usage</h3>
-                    <p class="text-gray-300 mb-2 text-sm">Navigate to your NodeJS project's root directory and run:</p>
-                    <pre
-                        class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 mb-4 overflow-x-auto"><code>packman</code></pre>
-                    <p class="text-gray-300 mb-2 text-sm">Or, to analyze a specific project (including monorepos):</p>
-                    <pre
-                        class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 overflow-x-auto"><code>packman /path/to/your-project</code></pre>
-                </div>
-            </div>
-
-            <div class="glass-card rounded-xl p-6 text-left">
-                <h3 class="text-xl font-bold text-white mb-4 text-center">Interactive Workflow Overview</h3>
-                <p class="max-w-2xl mx-auto text-md text-gray-300 mb-6 text-center">
-                    Packman guides you through an interactive process for each project:
+            <section id="how-to-use" class="text-center">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">How To Use Packman</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                    Get started with Packman by following these installation and usage instructions. Packman's
+                    interactive
+                    CLI will guide you through modernizing your NodeJS projects.
                 </p>
-                <ul class="space-y-3 text-gray-300">
-                    <li class="flex items-start">
-                        <span class="text-[#FFD166] mr-2">&#10148;</span>
-                        <div>
-                            <h4 class="font-semibold text-white">Project Selection:</h4>
-                            <p class="text-sm">If sub-projects (e.g., in a monorepo) are detected, Packman will list
-                                them and ask if you want to process all or select specific ones.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-[#FFD166] mr-2">&#10148;</span>
-                        <div>
-                            <h4 class="font-semibold text-white">Node.js Compatibility Analysis:</h4>
-                            <p class="text-sm">Analyzes `engines.node` requirements from `package.json` and dependencies
-                                to determine the effective supported Node.js range. It suggests compatible LTS versions
-                                for potential upgrades and can update your `package.json`.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-[#FFD166] mr-2">&#10148;</span>
-                        <div>
-                            <h4 class="font-semibold text-white">Dependency Management Actions:</h4>
-                            <p class="text-sm">Choose to review and update individual dependencies, attempt to update
-                                all outdated ones to their highest Node.js-compatible versions, or skip dependency
-                                management for the current project.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-[#FFD166] mr-2">&#10148;</span>
-                        <div>
-                            <h4 class="font-semibold text-white">Reviewing Health Indicators & Taking Action:</h4>
-                            <p class="text-sm">Dependencies are listed with color-coded health indicators (e.g., Red for
-                                significantly outdated, Yellow for minor updates). You can select packages to update
-                                their version or explore suggested alternatives.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-[#FFD166] mr-2">&#10148;</span>
-                        <div>
-                            <h4 class="font-semibold text-white">Confirmation & Execution:</h4>
-                            <p class="text-sm">Before any changes are made (like version updates or package
-                                replacements), Packman shows a summary and asks for final confirmation. It then runs the
-                                necessary package manager commands, with rollback mechanisms for safety.</p>
-                        </div>
-                    </li>
-                </ul>
-                <div class="my-8 p-6 border-2 border-dashed border-gray-500 rounded-lg text-center text-gray-400">
-                    <h4 class="text-xl font-bold text-white mb-4 text-center">Step-by-Step CLI Workflow</h4>
-                    <ol class="list-decimal list-inside text-left space-y-4 text-gray-300">
-                        <li>
-                            <h5 class="font-semibold text-[#FFD166]">1. Installation:</h5>
-                            <p class="text-sm pl-2">First, ensure Packman is installed. You can install it globally
-                                (once published) using: <br><code>npm install -g packman</code><br> For local
-                                development, clone the repository, run <code>npm install</code>, and then
-                                <code>npm link</code>.</p>
-                        </li>
-                        <li>
-                            <h5 class="font-semibold text-[#FFD166]">2. Start Packman:</h5>
-                            <p class="text-sm pl-2">Navigate to your NodeJS project's root directory in your terminal
-                                and run the command: <br><code>packman</code><br>Alternatively, you can specify a
-                                project path: <br><code>packman /path/to/your-project</code></p>
-                        </li>
-                        <li>
-                            <h5 class="font-semibold text-[#FFD166]">3. Project Selection (if applicable):</h5>
-                            <p class="text-sm pl-2">If Packman detects multiple sub-projects (e.g., in a monorepo), it
-                                will list them. You'll be prompted to either process all of them or select specific ones
-                                to analyze.</p>
-                        </li>
-                        <li>
-                            <h5 class="font-semibold text-[#FFD166]">4. Node.js Compatibility Analysis:</h5>
-                            <p class="text-sm pl-2">Packman examines the <code>engines.node</code> field in your
-                                <code>package.json</code> and your dependencies' requirements. It then suggests
-                                compatible Node.js LTS versions and can help you update your <code>package.json</code>
-                                if desired.</p>
-                        </li>
-                        <li>
-                            <h5 class="font-semibold text-[#FFD166]">5. Choose Dependency Management Actions:</h5>
-                            <p class="text-sm pl-2">You'll be presented with options to:
-                            <ul class="list-disc list-inside pl-4 text-xs">
-                                <li>Review and update dependencies individually.</li>
-                                <li>Attempt to update all outdated packages to their latest compatible versions.</li>
-                                <li>Skip dependency management for the selected project.</li>
-                            </ul>
-                            </p>
-                        </li>
-                        <li>
-                            <h5 class="font-semibold text-[#FFD166]">6. Review Health Indicators & Update:</h5>
-                            <p class="text-sm pl-2">Dependencies are displayed with color-coded health indicators (e.g.,
-                                Red for significantly outdated). You can then select specific packages to update their
-                                version or explore suggested alternative packages if available.</p>
-                        </li>
-                        <li>
-                            <h5 class="font-semibold text-[#FFD166]">7. Confirmation and Execution:</h5>
-                            <p class="text-sm pl-2">Before making any changes (like updating versions or replacing
-                                packages), Packman will show a summary of the planned actions. After your final
-                                confirmation, it will execute the necessary package manager commands (e.g.,
-                                <code>npm install package@latest</code>) to apply the changes.</p>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </section>
 
-        <section id="landscape">
-            <h2 class="text-3xl font-bold text-white text-center mb-8">Market Landscape & packman-cli's Edge</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="glass-card rounded-xl p-6 text-left">
+                        <h3 class="text-xl font-bold text-white mb-4">Installation</h3>
+                        <h4 class="text-lg font-semibold text-[#FFD166] mb-2">Global Installation (Recommended)</h4>
+                        <pre
+                            class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 overflow-x-auto"><code>npm install -g packman</code></pre>
+                        <p class="text-xs text-gray-400 mt-1 mb-4">(Once published to npm)</p>
+
+                        <h4 class="text-lg font-semibold text-[#FFD166] mb-2">Local Development/Testing</h4>
+                        <ol class="list-decimal list-inside text-gray-300 space-y-1 text-sm">
+                            <li>Clone the repository:
+                                <pre
+                                    class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>git clone https://github.com/your-username/packman.git</code></pre>
+                                <span class="text-xs text-gray-400">(Replace with the actual repository URL)</span>
+                            </li>
+                            <li>Navigate to the project directory:
+                                <pre
+                                    class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>cd packman</code></pre>
+                            </li>
+                            <li>Install dependencies:
+                                <pre
+                                    class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>npm install</code></pre>
+                            </li>
+                            <li>Link the package:
+                                <pre
+                                    class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>npm link</code></pre>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 text-left">
+                        <h3 class="text-xl font-bold text-white mb-4">Basic Usage</h3>
+                        <p class="text-gray-300 mb-2 text-sm">Navigate to your NodeJS project's root directory and run:
+                        </p>
+                        <pre
+                            class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 mb-4 overflow-x-auto"><code>packman</code></pre>
+                        <p class="text-gray-300 mb-2 text-sm">Or, to analyze a specific project (including monorepos):
+                        </p>
+                        <pre
+                            class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 overflow-x-auto"><code>packman /path/to/your-project</code></pre>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl p-6 text-left">
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Interactive Workflow Overview</h3>
+                    <p class="max-w-2xl mx-auto text-md text-gray-300 mb-6 text-center">
+                        Packman guides you through an interactive process for each project:
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-[#FFD166] mr-2">&#10148;</span>
+                            <div>
+                                <h4 class="font-semibold text-white">Project Selection:</h4>
+                                <p class="text-sm">If sub-projects (e.g., in a monorepo) are detected, Packman will list
+                                    them and ask if you want to process all or select specific ones.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#FFD166] mr-2">&#10148;</span>
+                            <div>
+                                <h4 class="font-semibold text-white">Node.js Compatibility Analysis:</h4>
+                                <p class="text-sm">Analyzes `engines.node` requirements from `package.json` and
+                                    dependencies
+                                    to determine the effective supported Node.js range. It suggests compatible LTS
+                                    versions
+                                    for potential upgrades and can update your `package.json`.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#FFD166] mr-2">&#10148;</span>
+                            <div>
+                                <h4 class="font-semibold text-white">Dependency Management Actions:</h4>
+                                <p class="text-sm">Choose to review and update individual dependencies, attempt to
+                                    update
+                                    all outdated ones to their highest Node.js-compatible versions, or skip dependency
+                                    management for the current project.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#FFD166] mr-2">&#10148;</span>
+                            <div>
+                                <h4 class="font-semibold text-white">Reviewing Health Indicators & Taking Action:</h4>
+                                <p class="text-sm">Dependencies are listed with color-coded health indicators (e.g., Red
+                                    for
+                                    significantly outdated, Yellow for minor updates). You can select packages to update
+                                    their version or explore suggested alternatives.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#FFD166] mr-2">&#10148;</span>
+                            <div>
+                                <h4 class="font-semibold text-white">Confirmation & Execution:</h4>
+                                <p class="text-sm">Before any changes are made (like version updates or package
+                                    replacements), Packman shows a summary and asks for final confirmation. It then runs
+                                    the
+                                    necessary package manager commands, with rollback mechanisms for safety.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="my-8 p-6 border-2 border-dashed border-gray-500 rounded-lg text-center text-gray-400">
+                        <<<<<<< HEAD <h4 class="text-xl font-bold text-white mb-4 text-center">Step-by-Step CLI Workflow
+                            </h4>
+                            <ol class="list-decimal list-inside text-left space-y-4 text-gray-300">
+                                <li>
+                                    <h5 class="font-semibold text-[#FFD166]">1. Installation:</h5>
+                                    <p class="text-sm pl-2">First, ensure Packman is installed. You can install it
+                                        globally
+                                        (once published) using: <br><code>npm install -g packman</code><br> For local
+                                        development, clone the repository, run <code>npm install</code>, and then
+                                        <code>npm link</code>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5 class="font-semibold text-[#FFD166]">2. Start Packman:</h5>
+                                    <p class="text-sm pl-2">Navigate to your NodeJS project's root directory in your
+                                        terminal
+                                        and run the command: <br><code>packman</code><br>Alternatively, you can specify
+                                        a
+                                        project path: <br><code>packman /path/to/your-project</code></p>
+                                </li>
+                                <li>
+                                    <h5 class="font-semibold text-[#FFD166]">3. Project Selection (if applicable):</h5>
+                                    <p class="text-sm pl-2">If Packman detects multiple sub-projects (e.g., in a
+                                        monorepo),
+                                        it
+                                        will list them. You'll be prompted to either process all of them or select
+                                        specific
+                                        ones
+                                        to analyze.</p>
+                                </li>
+                                <li>
+                                    <h5 class="font-semibold text-[#FFD166]">4. Node.js Compatibility Analysis:</h5>
+                                    <p class="text-sm pl-2">Packman examines the <code>engines.node</code> field in your
+                                        <code>package.json</code> and your dependencies' requirements. It then suggests
+                                        compatible Node.js LTS versions and can help you update your
+                                        <code>package.json</code>
+                                        if desired.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5 class="font-semibold text-[#FFD166]">5. Choose Dependency Management Actions:
+                                    </h5>
+                                    <p class="text-sm pl-2">You'll be presented with options to:
+                                    <ul class="list-disc list-inside pl-4 text-xs">
+                                        <li>Review and update dependencies individually.</li>
+                                        <li>Attempt to update all outdated packages to their latest compatible versions.
+                                        </li>
+                                        <li>Skip dependency management for the selected project.</li>
+                                    </ul>
+                                    </p>
+                                </li>
+                                <li>
+                                    <h5 class="font-semibold text-[#FFD166]">6. Review Health Indicators & Update:</h5>
+                                    <p class="text-sm pl-2">Dependencies are displayed with color-coded health
+                                        indicators
+                                        (e.g.,
+                                        Red for significantly outdated). You can then select specific packages to update
+                                        their
+                                        version or explore suggested alternative packages if available.</p>
+                                </li>
+                                <li>
+                                    <h5 class="font-semibold text-[#FFD166]">7. Confirmation and Execution:</h5>
+                                    <p class="text-sm pl-2">Before making any changes (like updating versions or
+                                        replacing
+                                        packages), Packman will show a summary of the planned actions. After your final
+                                        confirmation, it will execute the necessary package manager commands (e.g.,
+                                        <code>npm install package@latest</code>) to apply the changes.
+                                    </p>
+                                </li>
+                            </ol>
+                    </div>
+                </div>
+                <<<<<<< HEAD==============>>>>>>> refs/rewritten/main-4
+                    =======
+                    <p class="font-semibold">Animated Demo Coming Soon!</p>
+                    <p class="text-sm">An animated GIF or interactive Canvas demonstrating the Packman CLI workflow will
+                        be
+                        embedded here.</p>
+                    </div>
+                    </div>
+                    >>>>>>> 6f631ea (Add 'How To Use Packman' section to documentation)
+                    >>>>>>> 70b9e0d (Add 'How To Use Packman' section to documentation)
+            </section>
+
+            <section id="landscape">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Market Landscape & packman-cli's Edge</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Feature Comparison</h3>
+                        <p class="text-gray-300 mb-6">While tools like `npm update` and `ncu` focus on versioning,
+                            packman-cli
+                            provides a holistic, intelligent solution that goes beyond simple updates.</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm text-gray-300">
+                                <thead class="bg-white/10 text-xs uppercase">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">Feature</th>
+                                        <th scope="col" class="px-6 py-3 text-center">npm / ncu</th>
+                                        <th scope="col" class="px-6 py-3 text-center text-[#06D6A0]">packman-cli</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-white/10">
+                                        <td class="px-6 py-4 font-medium">Version Updates</td>
+                                        <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                        <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                    </tr>
+                                    <tr class="border-b border-white/10">
+                                        <td class="px-6 py-4 font-medium">Interactive Report</td>
+                                        <td class="px-6 py-4 text-center">Limited</td>
+                                        <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                    </tr>
+                                    <tr class="border-b border-white/10">
+                                        <td class="px-6 py-4 font-medium">Alternative Suggestions</td>
+                                        <td class="px-6 py-4 text-center text-2xl text-[#FF6B6B]">✗</td>
+                                        <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                    </tr>
+                                    <tr class="border-b border-white/10">
+                                        <td class="px-6 py-4 font-medium">Integrated Vulnerability Data</td>
+                                        <td class="px-6 py-4 text-center text-2xl text-[#FF6B6B]">✗</td>
+                                        <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 font-medium">Comprehensive Lockfile Support</td>
+                                        <td class="px-6 py-4 text-center">Partial</td>
+                                        <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white text-center mb-4">packman-cli's Value Proposition</h3>
+                        <p class="text-gray-300 mb-4 text-center">packman-cli's value is centered on providing
+                            actionable
+                            intelligence, moving beyond simple updates to strategic dependency evolution.</p>
+                        <div class="chart-container w-full h-80 max-w-sm mx-auto">
+                            <canvas id="valuePropositionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="architecture">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Core Architecture: A Modular Design</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                    packman-cli is built on a modular architecture, ensuring extensibility and maintainability. Each
+                    component
+                    has a distinct responsibility, from parsing lockfiles to executing updates.
+                </p>
+                <div class="flex flex-col items-center space-y-2">
+                    <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
+                        <h3 class="font-bold text-lg text-[#FFD166]">1. Lockfile/Manifest Parser Module</h3>
+                        <p class="text-sm text-gray-300">Reads `package.json`, `yarn.lock`, `bun.lock`, etc.</p>
+                    </div>
+                    <div class="flow-arrow"></div>
+                    <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
+                        <h3 class="font-bold text-lg text-[#FFD166]">2. Registry Interaction Module</h3>
+                        <p class="text-sm text-gray-300">Fetches package metadata from NPM registry.</p>
+                    </div>
+                    <div class="flow-arrow"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-3/4 text-center relative">
+                        <div
+                            class="absolute h-0.5 flow-line top-1/2 left-0 right-0 transform -translate-y-1/2 hidden md:block">
+                        </div>
+                        <div
+                            class="absolute w-0.5 flow-line top-0 h-8 left-1/2 transform -translate-x-1/2 hidden md:block">
+                        </div>
+                        <div class="md:col-span-3 flow-arrow hidden md:block"></div>
+
+                        <div class="glass-card rounded-lg p-4 z-10">
+                            <h3 class="font-bold text-md text-[#FFD166]">3a. Version Analysis</h3>
+                            <p class="text-xs text-gray-300">Identifies patch, minor, major updates.</p>
+                        </div>
+                        <div class="md:hidden flow-arrow"></div>
+                        <div class="glass-card rounded-lg p-4 z-10">
+                            <h3 class="font-bold text-md text-[#FFD166]">3b. Alternative Suggestions</h3>
+                            <p class="text-xs text-gray-300">Finds modern, secure replacements.</p>
+                        </div>
+                        <div class="md:hidden flow-arrow"></div>
+                        <div class="glass-card rounded-lg p-4 z-10">
+                            <h3 class="font-bold text-md text-[#FFD166]">3c. Vulnerability Assessment</h3>
+                            <p class="text-xs text-gray-300">Checks against security databases.</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow"></div>
+                    <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
+                        <h3 class="font-bold text-lg text-[#FFD166]">4. Report Generation Module</h3>
+                        <p class="text-sm text-gray-300">Structures data for the interactive CLI.</p>
+                    </div>
+                    <div class="flow-arrow"></div>
+                    <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
+                        <h3 class="font-bold text-lg text-[#FFD166]">5. Update Execution Module</h3>
+                        <p class="text-sm text-gray-300">Modifies `package.json` and runs install.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lockfiles">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Comprehensive Lockfile Support</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                    A key strength of packman-cli is its ability to parse a wide array of lockfile formats, ensuring
+                    compatibility across the diverse Node.js ecosystem regardless of the chosen package manager.
+                </p>
                 <div class="glass-card rounded-xl p-6">
-                    <h3 class="text-xl font-bold text-white mb-4">Feature Comparison</h3>
-                    <p class="text-gray-300 mb-6">While tools like `npm update` and `ncu` focus on versioning,
+                    <div class="chart-container w-full h-96 max-w-4xl mx-auto">
+                        <canvas id="lockfileSupportChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-400 mt-4 text-sm">This chart illustrates the variety of formats
                         packman-cli
-                        provides a holistic, intelligent solution that goes beyond simple updates.</p>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left text-sm text-gray-300">
-                            <thead class="bg-white/10 text-xs uppercase">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3">Feature</th>
-                                    <th scope="col" class="px-6 py-3 text-center">npm / ncu</th>
-                                    <th scope="col" class="px-6 py-3 text-center text-[#06D6A0]">packman-cli</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b border-white/10">
-                                    <td class="px-6 py-4 font-medium">Version Updates</td>
-                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
-                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
-                                </tr>
-                                <tr class="border-b border-white/10">
-                                    <td class="px-6 py-4 font-medium">Interactive Report</td>
-                                    <td class="px-6 py-4 text-center">Limited</td>
-                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
-                                </tr>
-                                <tr class="border-b border-white/10">
-                                    <td class="px-6 py-4 font-medium">Alternative Suggestions</td>
-                                    <td class="px-6 py-4 text-center text-2xl text-[#FF6B6B]">✗</td>
-                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
-                                </tr>
-                                <tr class="border-b border-white/10">
-                                    <td class="px-6 py-4 font-medium">Integrated Vulnerability Data</td>
-                                    <td class="px-6 py-4 text-center text-2xl text-[#FF6B6B]">✗</td>
-                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 font-medium">Comprehensive Lockfile Support</td>
-                                    <td class="px-6 py-4 text-center">Partial</td>
-                                    <td class="px-6 py-4 text-center text-2xl text-[#06D6A0]">✓</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        is designed to handle, reflecting different structures from JSON to custom text and YAML-like
+                        formats, which poses a significant parsing challenge.</p>
                 </div>
-                <div class="glass-card rounded-xl p-6">
-                    <h3 class="text-xl font-bold text-white text-center mb-4">packman-cli's Value Proposition</h3>
-                    <p class="text-gray-300 mb-4 text-center">packman-cli's value is centered on providing actionable
-                        intelligence, moving beyond simple updates to strategic dependency evolution.</p>
-                    <div class="chart-container w-full h-80 max-w-sm mx-auto">
-                        <canvas id="valuePropositionChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="architecture">
-            <h2 class="text-3xl font-bold text-white text-center mb-8">Core Architecture: A Modular Design</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
-                packman-cli is built on a modular architecture, ensuring extensibility and maintainability. Each
-                component
-                has a distinct responsibility, from parsing lockfiles to executing updates.
-            </p>
-            <div class="flex flex-col items-center space-y-2">
-                <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
-                    <h3 class="font-bold text-lg text-[#FFD166]">1. Lockfile/Manifest Parser Module</h3>
-                    <p class="text-sm text-gray-300">Reads `package.json`, `yarn.lock`, `bun.lock`, etc.</p>
-                </div>
-                <div class="flow-arrow"></div>
-                <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
-                    <h3 class="font-bold text-lg text-[#FFD166]">2. Registry Interaction Module</h3>
-                    <p class="text-sm text-gray-300">Fetches package metadata from NPM registry.</p>
-                </div>
-                <div class="flow-arrow"></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-3/4 text-center relative">
-                    <div
-                        class="absolute h-0.5 flow-line top-1/2 left-0 right-0 transform -translate-y-1/2 hidden md:block">
-                    </div>
-                    <div class="absolute w-0.5 flow-line top-0 h-8 left-1/2 transform -translate-x-1/2 hidden md:block">
-                    </div>
-                    <div class="md:col-span-3 flow-arrow hidden md:block"></div>
-
-                    <div class="glass-card rounded-lg p-4 z-10">
-                        <h3 class="font-bold text-md text-[#FFD166]">3a. Version Analysis</h3>
-                        <p class="text-xs text-gray-300">Identifies patch, minor, major updates.</p>
-                    </div>
-                    <div class="md:hidden flow-arrow"></div>
-                    <div class="glass-card rounded-lg p-4 z-10">
-                        <h3 class="font-bold text-md text-[#FFD166]">3b. Alternative Suggestions</h3>
-                        <p class="text-xs text-gray-300">Finds modern, secure replacements.</p>
-                    </div>
-                    <div class="md:hidden flow-arrow"></div>
-                    <div class="glass-card rounded-lg p-4 z-10">
-                        <h3 class="font-bold text-md text-[#FFD166]">3c. Vulnerability Assessment</h3>
-                        <p class="text-xs text-gray-300">Checks against security databases.</p>
-                    </div>
-                </div>
-                <div class="flow-arrow"></div>
-                <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
-                    <h3 class="font-bold text-lg text-[#FFD166]">4. Report Generation Module</h3>
-                    <p class="text-sm text-gray-300">Structures data for the interactive CLI.</p>
-                </div>
-                <div class="flow-arrow"></div>
-                <div class="glass-card rounded-lg p-4 w-full md:w-1/2 text-center">
-                    <h3 class="font-bold text-lg text-[#FFD166]">5. Update Execution Module</h3>
-                    <p class="text-sm text-gray-300">Modifies `package.json` and runs install.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="lockfiles">
-            <h2 class="text-3xl font-bold text-white text-center mb-8">Comprehensive Lockfile Support</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
-                A key strength of packman-cli is its ability to parse a wide array of lockfile formats, ensuring
-                compatibility across the diverse Node.js ecosystem regardless of the chosen package manager.
-            </p>
-            <div class="glass-card rounded-xl p-6">
-                <div class="chart-container w-full h-96 max-w-4xl mx-auto">
-                    <canvas id="lockfileSupportChart"></canvas>
-                </div>
-                <p class="text-center text-gray-400 mt-4 text-sm">This chart illustrates the variety of formats
-                    packman-cli
-                    is designed to handle, reflecting different structures from JSON to custom text and YAML-like
-                    formats, which poses a significant parsing challenge.</p>
-            </div>
-        </section>
-
-        <section id="intelligence">
-            <h2 class="text-3xl font-bold text-white text-center mb-8">The Intelligence Engine</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
-                packman-cli moves beyond simple version bumping by ranking potential updates and suggesting superior
-                alternatives based on a variety of health metrics.
-            </p>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="glass-card rounded-xl p-6">
-                    <h3 class="text-xl font-bold text-white text-center mb-4">Ranking Criteria for Alternatives</h3>
-                    <p class="text-gray-300 mb-4 text-center">Suggestions are not random; they are ranked by factors
-                        that ensure quality and reliability.</p>
-                    <div class="chart-container w-full h-96 max-w-lg mx-auto">
-                        <canvas id="rankingCriteriaChart"></canvas>
-                    </div>
-                </div>
-                <div class="glass-card rounded-xl p-6">
-                    <h3 class="text-xl font-bold text-white mb-4">Example: Strategic Replacement</h3>
-                    <p class="text-gray-300 mb-6">packman-cli identifies problematic packages and proposes modern,
-                        efficient alternatives with clear justifications.</p>
-                    <div class="space-y-4">
-                        <div class="bg-red-500/20 border border-red-500 rounded-lg p-4">
-                            <h4 class="font-bold">Current: <span class="text-red-300">momentjs</span></h4>
-                            <ul class="list-disc list-inside text-sm mt-2 text-red-200">
-                                <li>Legacy, large bundle size</li>
-                                <li>Maintenance mode</li>
-                                <li>Encourages mutability</li>
-                            </ul>
+            <section id="intelligence">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">The Intelligence Engine</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                    packman-cli moves beyond simple version bumping by ranking potential updates and suggesting superior
+                    alternatives based on a variety of health metrics.
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white text-center mb-4">Ranking Criteria for Alternatives</h3>
+                        <p class="text-gray-300 mb-4 text-center">Suggestions are not random; they are ranked by factors
+                            that ensure quality and reliability.</p>
+                        <div class="chart-container w-full h-96 max-w-lg mx-auto">
+                            <canvas id="rankingCriteriaChart"></canvas>
                         </div>
-                        <div class="text-center text-2xl font-bold text-white">→</div>
-                        <div class="bg-green-500/20 border border-green-500 rounded-lg p-4">
-                            <h4 class="font-bold">Suggestion: <span class="text-green-300">dayjs</span></h4>
-                            <ul class="list-disc list-inside text-sm mt-2 text-green-200">
-                                <li>Modern, ~2KB bundle size</li>
-                                <li>Actively maintained</li>
-                                <li>Immutable, largely compatible API</li>
-                            </ul>
+                    </div>
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Example: Strategic Replacement</h3>
+                        <p class="text-gray-300 mb-6">packman-cli identifies problematic packages and proposes modern,
+                            efficient alternatives with clear justifications.</p>
+                        <div class="space-y-4">
+                            <div class="bg-red-500/20 border border-red-500 rounded-lg p-4">
+                                <h4 class="font-bold">Current: <span class="text-red-300">momentjs</span></h4>
+                                <ul class="list-disc list-inside text-sm mt-2 text-red-200">
+                                    <li>Legacy, large bundle size</li>
+                                    <li>Maintenance mode</li>
+                                    <li>Encourages mutability</li>
+                                </ul>
+                            </div>
+                            <div class="text-center text-2xl font-bold text-white">→</div>
+                            <div class="bg-green-500/20 border border-green-500 rounded-lg p-4">
+                                <h4 class="font-bold">Suggestion: <span class="text-green-300">dayjs</span></h4>
+                                <ul class="list-disc list-inside text-sm mt-2 text-green-200">
+                                    <li>Modern, ~2KB bundle size</li>
+                                    <li>Actively maintained</li>
+                                    <li>Immutable, largely compatible API</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="roadmap">
-            <h2 class="text-3xl font-bold text-white text-center mb-8">Development Roadmap</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
-                packman-cli will be developed iteratively, delivering value at each stage while building towards a
-                comprehensive, feature-rich tool.
-            </p>
-            <div class="relative wrap overflow-hidden p-10 h-full">
-                <div class="absolute h-full border border-dashed border-opacity-20 border-white" style="left: 50%">
-                </div>
+            <section id="roadmap">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Development Roadmap</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                    packman-cli will be developed iteratively, delivering value at each stage while building towards a
+                    comprehensive, feature-rich tool.
+                </p>
+                <div class="relative wrap overflow-hidden p-10 h-full">
+                    <div class="absolute h-full border border-dashed border-opacity-20 border-white" style="left: 50%">
+                    </div>
 
-                <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-[#FF6B6B] shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#FF6B6B] shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                        </div>
+                        <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-white text-lg">Phase 1: MVP</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">Core support for `npm`, basic
+                                interactive report, and safe update execution.</p>
+                        </div>
                     </div>
-                    <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
-                        <h3 class="font-bold text-white text-lg">Phase 1: MVP</h3>
-                        <p class="text-sm leading-snug tracking-wide text-gray-300">Core support for `npm`, basic
-                            interactive report, and safe update execution.</p>
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#FFD166] shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                        </div>
+                        <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-white text-lg">Phase 2: Core Value</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">Add `yarn` support, basic
+                                alternative suggestions, and integrated vulnerability scanning.</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#06D6A0] shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                        </div>
+                        <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-white text-lg">Phase 3: Intelligence</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">Add `bun` support, advanced
+                                heuristics for alternatives, and rich user configuration.</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#118AB2] shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                        </div>
+                        <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-white text-lg">Future</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">Full monorepo support, plugin
+                                architecture, license checking, and test suite integration.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-[#FFD166] shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
-                    </div>
-                    <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
-                        <h3 class="font-bold text-white text-lg">Phase 2: Core Value</h3>
-                        <p class="text-sm leading-snug tracking-wide text-gray-300">Add `yarn` support, basic
-                            alternative suggestions, and integrated vulnerability scanning.</p>
-                    </div>
-                </div>
-                <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-[#06D6A0] shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
-                    </div>
-                    <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
-                        <h3 class="font-bold text-white text-lg">Phase 3: Intelligence</h3>
-                        <p class="text-sm leading-snug tracking-wide text-gray-300">Add `bun` support, advanced
-                            heuristics for alternatives, and rich user configuration.</p>
-                    </div>
-                </div>
-                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-[#118AB2] shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
-                    </div>
-                    <div class="order-1 glass-card rounded-lg shadow-xl w-5/12 px-6 py-4">
-                        <h3 class="font-bold text-white text-lg">Future</h3>
-                        <p class="text-sm leading-snug tracking-wide text-gray-300">Full monorepo support, plugin
-                            architecture, license checking, and test suite integration.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
     </main>
 

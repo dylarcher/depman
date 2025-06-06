@@ -200,8 +200,43 @@
                     </li>
                 </ul>
                 <div class="my-8 p-6 border-2 border-dashed border-gray-500 rounded-lg text-center text-gray-400">
-                    <p class="font-semibold">Animated Demo Coming Soon!</p>
-                    <p class="text-sm">An animated GIF or interactive Canvas demonstrating the Packman CLI workflow will be embedded here.</p>
+                    <h4 class="text-xl font-bold text-white mb-4 text-center">Step-by-Step CLI Workflow</h4>
+                    <ol class="list-decimal list-inside text-left space-y-4 text-gray-300">
+                        <li>
+                            <h5 class="font-semibold text-[#FFD166]">1. Installation:</h5>
+                            <p class="text-sm pl-2">First, ensure Packman is installed. You can install it globally (once published) using: <br><code>npm install -g packman</code><br> For local development, clone the repository, run <code>npm install</code>, and then <code>npm link</code>.</p>
+                        </li>
+                        <li>
+                            <h5 class="font-semibold text-[#FFD166]">2. Start Packman:</h5>
+                            <p class="text-sm pl-2">Navigate to your NodeJS project's root directory in your terminal and run the command: <br><code>packman</code><br>Alternatively, you can specify a project path: <br><code>packman /path/to/your-project</code></p>
+                        </li>
+                        <li>
+                            <h5 class="font-semibold text-[#FFD166]">3. Project Selection (if applicable):</h5>
+                            <p class="text-sm pl-2">If Packman detects multiple sub-projects (e.g., in a monorepo), it will list them. You'll be prompted to either process all of them or select specific ones to analyze.</p>
+                        </li>
+                        <li>
+                            <h5 class="font-semibold text-[#FFD166]">4. Node.js Compatibility Analysis:</h5>
+                            <p class="text-sm pl-2">Packman examines the <code>engines.node</code> field in your <code>package.json</code> and your dependencies' requirements. It then suggests compatible Node.js LTS versions and can help you update your <code>package.json</code> if desired.</p>
+                        </li>
+                        <li>
+                            <h5 class="font-semibold text-[#FFD166]">5. Choose Dependency Management Actions:</h5>
+                            <p class="text-sm pl-2">You'll be presented with options to:
+                                <ul class="list-disc list-inside pl-4 text-xs">
+                                    <li>Review and update dependencies individually.</li>
+                                    <li>Attempt to update all outdated packages to their latest compatible versions.</li>
+                                    <li>Skip dependency management for the selected project.</li>
+                                </ul>
+                            </p>
+                        </li>
+                        <li>
+                            <h5 class="font-semibold text-[#FFD166]">6. Review Health Indicators & Update:</h5>
+                            <p class="text-sm pl-2">Dependencies are displayed with color-coded health indicators (e.g., Red for significantly outdated). You can then select specific packages to update their version or explore suggested alternative packages if available.</p>
+                        </li>
+                        <li>
+                            <h5 class="font-semibold text-[#FFD166]">7. Confirmation and Execution:</h5>
+                            <p class="text-sm pl-2">Before making any changes (like updating versions or replacing packages), Packman will show a summary of the planned actions. After your final confirmation, it will execute the necessary package manager commands (e.g., <code>npm install package@latest</code>) to apply the changes.</p>
+                        </li>
+                    </ol>
                 </div>
             </div>
         </section>

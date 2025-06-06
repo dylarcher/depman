@@ -117,6 +117,95 @@
             </div>
         </section>
 
+        <section id="how-to-use" class="text-center">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">How To Use Packman</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12 text-center">
+                Get started with Packman by following these installation and usage instructions. Packman's interactive CLI will guide you through modernizing your NodeJS projects.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card rounded-xl p-6 text-left">
+                    <h3 class="text-xl font-bold text-white mb-4">Installation</h3>
+                    <h4 class="text-lg font-semibold text-[#FFD166] mb-2">Global Installation (Recommended)</h4>
+                    <pre class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 overflow-x-auto"><code>npm install -g packman</code></pre>
+                    <p class="text-xs text-gray-400 mt-1 mb-4">(Once published to npm)</p>
+
+                    <h4 class="text-lg font-semibold text-[#FFD166] mb-2">Local Development/Testing</h4>
+                    <ol class="list-decimal list-inside text-gray-300 space-y-1 text-sm">
+                        <li>Clone the repository:
+                            <pre class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>git clone https://github.com/your-username/packman.git</code></pre>
+                            <span class="text-xs text-gray-400">(Replace with the actual repository URL)</span>
+                        </li>
+                        <li>Navigate to the project directory:
+                            <pre class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>cd packman</code></pre>
+                        </li>
+                        <li>Install dependencies:
+                            <pre class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>npm install</code></pre>
+                        </li>
+                        <li>Link the package:
+                            <pre class="bg-gray-900/50 p-2 my-1 rounded-md text-xs text-gray-200 overflow-x-auto"><code>npm link</code></pre>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="glass-card rounded-xl p-6 text-left">
+                    <h3 class="text-xl font-bold text-white mb-4">Basic Usage</h3>
+                    <p class="text-gray-300 mb-2 text-sm">Navigate to your NodeJS project's root directory and run:</p>
+                    <pre class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 mb-4 overflow-x-auto"><code>packman</code></pre>
+                    <p class="text-gray-300 mb-2 text-sm">Or, to analyze a specific project (including monorepos):</p>
+                    <pre class="bg-gray-900/50 p-3 rounded-md text-sm text-gray-200 overflow-x-auto"><code>packman /path/to/your-project</code></pre>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 text-left">
+                <h3 class="text-xl font-bold text-white mb-4 text-center">Interactive Workflow Overview</h3>
+                <p class="max-w-2xl mx-auto text-md text-gray-300 mb-6 text-center">
+                    Packman guides you through an interactive process for each project:
+                </p>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-start">
+                        <span class="text-[#FFD166] mr-2">&#10148;</span>
+                        <div>
+                            <h4 class="font-semibold text-white">Project Selection:</h4>
+                            <p class="text-sm">If sub-projects (e.g., in a monorepo) are detected, Packman will list them and ask if you want to process all or select specific ones.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#FFD166] mr-2">&#10148;</span>
+                        <div>
+                            <h4 class="font-semibold text-white">Node.js Compatibility Analysis:</h4>
+                            <p class="text-sm">Analyzes `engines.node` requirements from `package.json` and dependencies to determine the effective supported Node.js range. It suggests compatible LTS versions for potential upgrades and can update your `package.json`.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#FFD166] mr-2">&#10148;</span>
+                        <div>
+                            <h4 class="font-semibold text-white">Dependency Management Actions:</h4>
+                            <p class="text-sm">Choose to review and update individual dependencies, attempt to update all outdated ones to their highest Node.js-compatible versions, or skip dependency management for the current project.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#FFD166] mr-2">&#10148;</span>
+                        <div>
+                            <h4 class="font-semibold text-white">Reviewing Health Indicators & Taking Action:</h4>
+                            <p class="text-sm">Dependencies are listed with color-coded health indicators (e.g., Red for significantly outdated, Yellow for minor updates). You can select packages to update their version or explore suggested alternatives.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#FFD166] mr-2">&#10148;</span>
+                        <div>
+                            <h4 class="font-semibold text-white">Confirmation & Execution:</h4>
+                            <p class="text-sm">Before any changes are made (like version updates or package replacements), Packman shows a summary and asks for final confirmation. It then runs the necessary package manager commands, with rollback mechanisms for safety.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="my-8 p-6 border-2 border-dashed border-gray-500 rounded-lg text-center text-gray-400">
+                    <p class="font-semibold">Animated Demo Coming Soon!</p>
+                    <p class="text-sm">An animated GIF or interactive Canvas demonstrating the Packman CLI workflow will be embedded here.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="landscape">
             <h2 class="text-3xl font-bold text-white text-center mb-8">Market Landscape & packman-cli's Edge</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

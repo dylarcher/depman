@@ -68,6 +68,5 @@ on:
   pull_request:
     branches:
       - deploy/
-      - deployå/
       - main
     types: [opened, reopened, synchronize]

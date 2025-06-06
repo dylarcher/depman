@@ -1,0 +1,15 @@
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: Project dependency setup
+        run: npm ci
+      - name: Lint project source code
+        run: npx eslint src/**/*.js
+name: ESLint
+on: [pull_request]

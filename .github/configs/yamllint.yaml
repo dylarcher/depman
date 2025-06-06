@@ -1,0 +1,10 @@
+extends: default
+ignore:
+  - node_modules/
+  - .idx/
+  - .vscode/
+  - .cache/
+rules:
+  line-length:
+    level: warning
+    max: 120

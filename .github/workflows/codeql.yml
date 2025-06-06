@@ -1,0 +1,38 @@
+jobs:
+  analyze:
+    name: Check (${{ matrix.language }})
+    permissions:
+      actions: read
+      contents: read
+      packages: read
+      security-events: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository source code
+        uses: actions/checkout@v4
+      - if: matrix.language == 'javascript'
+        name: NodeJS environment setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - if: matrix.language == 'javascript'
+        name: Project build process
+        run: npm ci && npm run build
+      - name: CodeQL environment setup
+        uses: github/codeql-action/init@v3
+        with:
+          build-mode: ${{ matrix.build-mode }}
+          languages: ${{ matrix.language }}
+          queries: security-extended,security-and-quality
+      - name: CodeQL analyze scripts
+        uses: github/codeql-action/analyze@v3
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - build-mode: autobuild
+            language: github_actions
+          - build-mode: none
+            language: javascript
+name: CodeQL Analysis
+on: [pull_request]

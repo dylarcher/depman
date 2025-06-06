@@ -1,71 +1,144 @@
 {
     "IDX.aI.enableCodebaseIndexing": true,
     "IDX.aI.enableInlineCompletion": true,
-    "[yaml]": {
-        "editor.codeActionsOnSave": {
-            "source.addMissingImports": "always",
-            "source.organizeImports": "always",
-            "source.fixAll": "always",
-            "source.fixAll.yaml-sort": "explicit"
-        },
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
     "[css]": {
         "editor.codeActionsOnSave": {
             "source.addMissingImports": "always",
             "source.fixAll": "always",
-            "source.fixAll.cssPeek": "explicit",
+            "source.fixAll.biomejs": "always",
+            "source.fixAll.prettier": "always",
+            "source.fixAll.stylelint": "explicit",
             "source.organizeImports": "always"
         },
         "editor.defaultFormatter": "vscode.css-language-features",
-        "editor.formatOnSave": true,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2
+        "editor.formatOnSave": true
     },
     "[html]": {
         "editor.codeActionsOnSave": {
-            "source.fixAll": "always"
+            "source.fixAll": "always",
+            "source.fixAll.biomejs": "always",
+            "source.fixAll.prettier": "always"
         },
         "editor.defaultFormatter": "vscode.html-language-features",
-        "editor.formatOnSave": true,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2
+        "editor.formatOnSave": true
     },
     "[javascript]": {
         "editor.codeActionsOnSave": {
             "source.addMissingImports": "always",
             "source.fixAll": "always",
+            "source.fixAll.biomejs": "always",
+            "source.fixAll.prettier": "always",
             "source.organizeImports": "always"
         },
         "editor.defaultFormatter": "vscode.typescript-language-features",
-        "editor.formatOnSave": true,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2
+        "editor.formatOnSave": true
     },
     "[json]": {
         "editor.codeActionsOnSave": {
             "source.fixAll": "always",
+            "source.fixAll.biomejs": "always",
+            "source.fixAll.prettier": "always",
             "source.fixAll.sort-json": "explicit"
         },
         "editor.defaultFormatter": "vscode.json-language-features",
-        "editor.formatOnSave": true,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2
+        "editor.formatOnSave": true
     },
     "[markdown]": {
         "editor.codeActionsOnSave": {
             "source.fixAll": "always",
-            "source.fixAll.markdownlint": "explicit"
+            "source.fixAll.biomejs": "always",
+            "source.fixAll.markdownlint": "explicit",
+            "source.fixAll.prettier": "always"
         },
-        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
-        "editor.formatOnSave": true,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2
+        "editor.defaultFormatter": "vscode.markdown-language-features",
+        "editor.formatOnSave": true
     },
+    "[svg]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always",
+            "source.fixAll.biomejs": "always",
+            "source.fixAll.jock-svg": "explicit",
+            "source.fixAll.prettier": "always"
+        },
+        "editor.defaultFormatter": "jock.svg",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.codeActionsOnSave": {
+            "source.addMissingImports": "always",
+            "source.fixAll": "always",
+            "source.fixAll.biomejs": "always",
+            "source.fixAll.prettier": "always",
+            "source.organizeImports": "always"
+        },
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.formatOnSave": true
+    },
+    "[yaml]": {
+        "editor.codeActionsOnSave": {
+            "source.addMissingImports": "always",
+            "source.fixAll": "always",
+            "source.fixAll.biomejs": "always",
+            "source.fixAll.prettier": "always",
+            "source.fixAll.yaml-sort": "explicit",
+            "source.organizeImports": "always"
+        },
+        "editor.defaultFormatter": "googlecloudtools.cloudcode",
+        "editor.formatOnSave": true
+    },
+    "cloudcode.apigee.gemini.options": {
+        "enableRemoteMockServer": true,
+        "enterpriseContext": {
+            "enabled": true,
+            "includeMetadata": true,
+            "includeSchema": true,
+            "includeSecurity": true
+        }
+    },
+    "cloudcode.autoDependencies": "on",
+    "cloudcode.compute.sshInternalIp": true,
+    "cloudcode.yaml.format.bracketSpacing": true,
+    "cloudcode.yaml.format.enable": true,
+    "cloudcode.yaml.format.proseWrap": "preserve",
+    "cloudcode.yaml.format.singleQuote": true,
+    "cloudcode.yaml.schemas": {
+        "https://json.schemastore.org/browserslist": [
+            ".browserslistrc.{yaml,yml}",
+            "browserslist.config.{yaml,yml}"
+        ],
+        "https://biomejs.dev/schemas/latest/schema.json": [
+            ".biomerc.{yaml,yml}",
+            "biome.{yaml,yml}",
+        ],
+        "https://json.schemastore.org/commitlint.config.json": [
+            ".commitlintrc.{yaml,yml}",
+            "commitlintrc.config.{yaml,yml}"
+        ],
+        "https://json.schemastore.org/eslintrc.json": [
+            ".eslintrc.{yaml,yml}",
+            "eslint.config.{yaml,yml}"
+        ],
+        "https://json.schemastore.org/github-action.json": ".github/**/*.{yaml,yml}",
+        "https://json.schemastore.org/github-funding-file": ".github/FUNDING.{yaml,yml}",
+        "https://json.schemastore.org/github-issue-forms": ".github/ISSUE_TEMPLATE/*.{yaml,yml}",
+        "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.{yaml,yml}",
+        "https://json.schemastore.org/prettierrc.json": [
+            ".prettierrc.{yaml,yml}",
+            "prettier.config.{yaml,yml}"
+        ],
+        "https://json.schemastore.org/stylelintrc.json": [
+            ".stylelintrc.{yaml,yml}",
+            "stylelint.config.{yaml,yml}"
+        ]
+    },
+    "cloudcode.yaml.trace.server": "messages",
+    "cloudcode.yaml.validate": true,
     "css.format.enable": true,
+    "css.trace.server": "messages",
     "css.validate": true,
     "editor.detectIndentation": true,
     "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
     "editor.formatOnType": false,
     "editor.inlineSuggest.enabled": true,
     "editor.inlineSuggest.showToolbar": "onHover",
@@ -95,6 +168,7 @@
     "editor.tabSize": 2,
     "editor.wordBasedSuggestions": "currentDocument",
     "html.format.enable": true,
+    "html.trace.server": "messages",
     "html.validate.scripts": true,
     "html.validate.styles": true,
     "javascript.format.enable": true,
@@ -106,15 +180,48 @@
     "js/ts.implicitProjectConfig.strictNullChecks": true,
     "js/ts.implicitProjectConfig.target": "ESNext",
     "json.format.enable": true,
+    "json.trace.server": "messages",
+    "json.validate.enable": true,
+    "liveServer.settings.port": 5502,
+    "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
+    "markdown.trace.server": "messages",
+    "markdown.validate.enabled": true,
     "markdownlint.config": {
-        "MD041": false,
+        "MD001": true,
+        "MD005": true,
+        "MD006": true,
+        "MD009": true,
+        "MD010": true,
+        "MD011": true,
+        "MD012": true,
         "MD013": false,
+        "MD014": true,
+        "MD018": true,
+        "MD019": true,
+        "MD020": true,
+        "MD021": true,
+        "MD022": true,
+        "MD023": true,
+        "MD025": true,
+        "MD033": false,
+        "MD051": false,
         "default": true,
         "rules": {
-            "MD024": { "style": "consistent" },
-            "MD029": { "style": "ordered" }
+            "MD004": {
+                "style": "dash"
+            },
+            "MD007": {
+                "indent": 2
+            },
+            "MD024": {
+                "style": "consistent"
+            },
+            "MD029": {
+                "style": "ordered"
+            }
         }
     },
+    "markdownlint.configFile": "./github/**/.markdownlint.json",
     "sortJSON.contextMenu": {
         "sortJSON": true,
         "sortJSONAlphaNum": false,
@@ -135,8 +242,7 @@
     "sortJSON.excludedPaths": [
         "**/node_modules/*"
     ],
-    "yaml.format.enable": true,
-    "yaml.validate": true,
+    "yaml.completion": true,
     "yaml.customTags": [
         "!include",
         "!include_str",
@@ -147,7 +253,24 @@
         "!include_file_yaml",
         "!include_file_json"
     ],
+    "yaml.extension.recommendations": true,
+    "yaml.format.bracketSpacing": true,
+    "yaml.format.enable": true,
+    "yaml.format.printWidth": 80,
+    "yaml.format.proseWrap": "preserve",
+    "yaml.format.singleQuote": true,
+    "yaml.hover": true,
+    "yaml.keyOrdering": true,
+    "yaml.maxItemsComputed": 6400,
+    "yaml.schemaStore.enable": true,
+    "yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
+    "yaml.style.flowMapping": "allow",
+    "yaml.style.flowSequence": "allow",
+    "yaml.suggest.parentSkeletonSelectedFirst": true,
+    "yaml.trace.server": "messages",
+    "yaml.validate": true,
+    "yaml.yamlVersion": "1.2",
     "yaml.schemas": {
-        "https://raw.githubusercontent.com/helm/charts/master/stable/values.schema.json": "/*.yaml"
+        "https://json.schemastore.org/github-workflow.json": "file:///Users/darcher/dev/template.repo-starter/.github/workflows/log.yml"
     }
 }

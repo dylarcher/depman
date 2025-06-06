@@ -1,7 +1,7 @@
 {
   "author": "Dylan Archer <dylarcher@gmail.com> (@dylarcher)",
   "bin": {
-    "packman-cli": "./bin/index.js"
+    "packman-cli": "./bin/cli.js"
   },
   "browser": "dist/index.umd.js",
   "bugs": {
@@ -9,7 +9,10 @@
   },
   "description": "A CLI tool to help keep NodeJS projects up to date and aligned with industry standards.",
   "dependencies": {
-    "yargs": "18.0.0"
+    "yargs": "18.0.0",
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.6",
+    "semver": "^7.7.2"
   },
   "devDependencies": {
     "@types/node": "22.15.30",

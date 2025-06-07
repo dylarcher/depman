@@ -1,15 +1,24 @@
-# We do not want to include unnecessary project files; however,
-# at the very least, we need a baseline formatting configuration.
+#! formatting rules: common sense defaults
+#? see: <https://editorconfig.org>
 
+# base ruleset
 root = true
 
 [*]
+# indentation rules
+indent_style = space
+indent_size = 2
+
+# character and symbol rules
 charset = utf-8
 end_of_line = lf
 insert_final_newline = true
-indent_style = space
-indent_size = 2
 trim_trailing_whitespace = true
 
-[*.md]
+# good practice: ignore whitespace rules (optional)
+[{*.md,*.txt,*.json,*.yml}]
 trim_trailing_whitespace = false
+
+#* below this: specific language rules (optional)
+[{*.css,*.html,*.js,*.json,*.md,*.yml,*.svg}]
+indent_size = 2

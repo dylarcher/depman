@@ -1,0 +1,45 @@
+{
+  "JavaScript Function": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:functionName}(${2:parameters}) {",
+      "\t${0:// function body}",
+      "}"
+    ],
+    "description": "Create a JavaScript function"
+  },
+  "Arrow Function": {
+    "prefix": "arrow",
+    "body": [
+      "const ${1:functionName} = (${2:parameters}) => {",
+      "\t${0:// function body}",
+      "};"
+    ],
+    "description": "Create an arrow function"
+  },
+  "Console Log": {
+    "prefix": "log",
+    "body": [
+      "console.log(${1:object});"
+    ],
+    "description": "Log to the console"
+  },
+  "Import Statement": {
+    "prefix": "imp",
+    "body": [
+      "import ${2:{ $3 }} from '${1:module}';"
+    ],
+    "description": "Import a module"
+  },
+  "Try/Catch Block": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t${1:// try code}",
+      "} catch (${2:error}) {",
+      "\t${3:// error handling}",
+      "}"
+    ],
+    "description": "Try/catch block"
+  }
+}

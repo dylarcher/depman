@@ -1,3 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+._*
+.LSOverride
+
+# Linux
+*~
+.#*
+.swp
+.swo
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
 # Logs
 logs
 *.log
@@ -90,6 +108,8 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+lib
+
 
 # Gatsby files
 .cache/
@@ -134,8 +154,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-
-# Operating System (OS)
-.DS_Store
-.AppleDouble
-.LSOverride

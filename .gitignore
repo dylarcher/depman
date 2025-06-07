@@ -139,3 +139,11 @@ dist
 .DS_Store
 .AppleDouble
 .LSOverride
+
+
+# Rules from packman/.gitignore
+node_modules/
+npm-debug.log
+*.log
+coverage/
+dist/

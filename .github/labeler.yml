@@ -1,18 +1,17 @@
----
 labels:
-  - color: 4285F4
+  - name: automation
+    color: '4285F4'
     description: 🤖 Pull requests that update GitHub Actions code
     files:
       - .github/**/*.yml
       - .github/**/*.yaml
-      - .github/**/*.json
+      - .github/**/.json
       - .github/workflows/**
       - .github/actions/**
       - .github/workflows/*.yml
       - .github/actions/*.js
       - action.yml
       - .github/action.yml
-    name: automation
     ref: |
       automation
       github actions
@@ -23,9 +22,9 @@ labels:
       devops
       continuous integration
       continuous deployment
-  - color: FF5252
+  - name: blocked
+    color: 'FF5252'
     description: ⛔ Effort on hold
-    name: blocked
     ref: |
       on hold
       blocked
@@ -41,14 +40,14 @@ labels:
       dependency blocker
       awaiting input
       blocked by
-  - color: FFC107
+  - name: incompatible
+    color: 'FFC107'
     description: ⚠️ A change that will break the current functionality
     files:
       - compat/*
       - src/**/*.js
-      - src/utils/*.js
+      - src/utils/**/*.js
       - src/services/*.js
-    name: incompatible
     ref: |
       incompatible
       support
@@ -64,9 +63,9 @@ labels:
       backward incompatible
       version bump
       major version
-  - color: 00BFA5
+  - name: review
+    color: '00BFA5'
     description: 👀 Ready for review
-    name: review
     ref: |
       review
       ready for review
@@ -79,9 +78,9 @@ labels:
       feedback wanted
       for your review
       review request
-  - color: F44336
+  - name: conflict
+    color: 'F44336'
     description: 💥 Merge conflicts
-    name: conflict
     ref: |
       rebase
       merge conflict
@@ -93,13 +92,13 @@ labels:
       merge required
       conflicting changes
       branch conflicts
-  - color: E91E63
+  - name: bugfix
+    color: 'E91E63'
     description: 🐛 Something isn't working
-    name: bugfix
     files:
       - src/**/*.js
-      - src/utils/*.js
-      - src/services/*.js
+      - src/utils/**/*.js
+      - src/services/**/*.js
     ref: |
       bug
       bugfix
@@ -124,11 +123,11 @@ labels:
       malfunction
       mistake
       unintended
-  - color: 9E9E9E
+  - name: chore
+    color: '9E9E9E'
     description: 🧹 A simple, remedial or mundane task
-    name: chore
     files:
-      - .github/*
+      - .github/
       - .gitignore
       - .eslintrc*
       - .prettier*
@@ -148,27 +147,27 @@ labels:
       version bump
       toolchain
       dependency
-  - color: 607D8B
+  - name: config
+    color: '607D8B'
     description: ⚙️ configuration settings
     files:
-      - .*
-      - "**/*.jsonl"
-      - "**/*.json5"
-      - "**/*.json"
-      - "**/*.yaml"
-      - "**/*.yml"
-      - "**/*.toml"
-      - "**/*.ini"
-      - "**/*.config.js"
-      - "**/*.config.ts"
-      - "config/**/*"
-      - ".env*"
-      - ".npmrc"
-      - ".nvmrc"
-      - ".babelrc*"
-      - "tsconfig.json"
-      - "jest.config.*"
-    name: config
+      - '.*'
+      - '**/*.jsonl'
+      - '**/*.json5'
+      - '**/*.json'
+      - '**/*.yaml'
+      - '**/*.yml'
+      - '**/*.toml'
+      - '**/*.ini'
+      - '**/.config.js'
+      - '**/.config.ts'
+      - config/**/*
+      - .env*
+      - .npmrc
+      - .nvmrc
+      - .babelrc*
+      - tsconfig.json
+      - jest.config.*
     ref: |
       config
       configuration
@@ -184,7 +183,8 @@ labels:
       yaml
       yml
       json
-  - color: 3F51B5
+  - name: dependency
+    color: '3F51B5'
     description: 📦 Pull requests that update a dependency file
     files:
       - package.json
@@ -192,13 +192,12 @@ labels:
       - npm-shrinkwrap.json
       - yarn.lock
       - pnpm-lock.yaml
-      - "**/*requirements*.txt"
-      - "Gemfile*"
-      - "Cargo.toml"
-      - "Cargo.lock"
-      - "go.mod"
-      - "go.sum"
-    name: dependency
+      - '**/requirements.txt'
+      - Gemfile*
+      - Cargo.toml
+      - Cargo.lock
+      - go.mod
+      - go.sum
     ref: |
       dependencies
       deps
@@ -216,11 +215,12 @@ labels:
       security update
       version bump
       dependency update
-  - color: 2196F3
+  - name: documentation
+    color: '2196F3'
     description: 📝 Improvements or additions to documentation
     files:
-      - \**/*.md
-      - .github/*.md
+      - '**/*.md'
+      - .github/**/*.md
       - .github/CHANGELOG.md
       - .github/CONTRIBUTING.md
       - .github/CODE_OF_CONDUCT.md
@@ -246,29 +246,29 @@ labels:
       codeowners
       code of conduct
       policy
-  - name: "duplicate"
-    description: "👯 This issue or pull request already exists"
-    color: "BDBDBD"
-  - name: "enhancement"
-    description: "✨ New feature or request"
-    color: "00BCD4"
-  - name: "good first issue"
-    description: "🔰 Good for newcomers"
-    color: "7B1FA2"
-  - name: "help wanted"
-    description: "🆘 Extra attention is needed"
-    color: "009688"
-  - name: "invalid"
-    description: "❌ This doesn't seem right"
-    color: "CDDC39"
-  - name: "logic"
-    description: "🧠 Pull requests that update javascript code"
-    color: "FF9800"
+  - name: duplicate
+    color: 'BDBDBD'
+    description: 👯 This issue or pull request already exists
+  - name: enhancement
+    color: '00BCD4'
+    description: ✨ New feature or request
+  - name: good first issue
+    color: '7B1FA2'
+    description: 🔰 Good for newcomers
+  - name: help wanted
+    color: '009688' # Corrected from 9688
+    description: 🆘 Extra attention is needed
+  - name: invalid
+    color: 'CDDC39'
+    description: ❌ This doesn't seem right
+  - name: logic
+    color: 'FF9800'
+    description: 🧠 Pull requests that update javascript code
     files:
-      - \**/*.js
+      - '**/*.js'
       - src/**/*.js
-      - src/utils/*.js
-      - src/services/*.js
+      - src/utils/**/*.js
+      - src/services/**/*.js
       - src/**/*.ts
       - src/**/*.jsx
       - src/**/*.tsx
@@ -300,9 +300,9 @@ labels:
       yarn
       pnpm
       package
-  - color: 9C27B0
+  - name: inconclusive
+    color: '9C27B0'
     description: ❓ Further information is requested
-    name: inconclusive
     ref: |
       inconclusive
       question
@@ -325,27 +325,27 @@ labels:
       please explain
       needs clarification
       what do you mean
-  - color: 03A9F4
+  - name: visual
+    color: '03A9F4'
     description: 🎨 UI design change(s)
     files:
-      - "**/*.css"
-      - "**/*.scss"
-      - "**/*.sass"
-      - "**/*.less"
-      - "**/*.styl"
-      - "**/*.svg"
-      - "**/*.png"
-      - "**/*.jpg"
-      - "**/*.jpeg"
-      - "**/*.gif"
-      - "**/*.webp"
-      - "src/shared/**/*.png"
-      - "src/shared/**/*.jpg"
-      - "src/shared/**/*.jpeg"
-      - "src/shared/**/*.svg"
-      - "docs/assets:media/**/*"
-      - "src/demo/**/*"
-    name: visual
+      - '**/*.css'
+      - '**/*.scss'
+      - '**/*.sass'
+      - '**/*.less'
+      - '**/*.styl'
+      - '**/*.svg'
+      - '**/*.png'
+      - '**/*.jpg'
+      - '**/*.jpeg'
+      - '**/*.gif'
+      - '**/*.webp'
+      - src/shared/**/*.png
+      - src/shared/**/*.jpg
+      - src/shared/**/*.jpeg
+      - src/shared/**/*.svg
+      - docs/assets/media/**/*
+      - src/demo/**/*
     ref: |
       visual
       media
@@ -390,9 +390,9 @@ labels:
       mockup
       wireframe
       prototype
-  - color: EEEEEE
+  - name: wontfix
+    color: 'EEEEEE'
     description: 🚫 This will not be worked on
-    name: wontfix
     ref: |
       ignore
       nonissue
@@ -403,8 +403,7 @@ labels:
       nofix
       nope
       no
-      closed
-      as designed
+      closed as designed
       by desiågn
       intended behavior
       expected behavior
@@ -422,13 +421,13 @@ labels:
       low priority
       duplicate functionality
       unnecessary
-  - color: 673AB7
+  - name: semver
+    color: '673AB7'
     description: 🔢 Related to version ranges and semantic versioning
     files:
       - src/utils/semver.util.js
-      - src/**/*version*.js
-      - src/**/*semver*.js
-    name: semver
+      - src/**/version.js
+      - src/**/semver.js
     ref: |
       semver
       semantic versioning
@@ -445,15 +444,15 @@ labels:
       version selection
       version conflict
       version parsing
-  - color: 4CAF50
+  - name: testing
+    color: '4CAF50'
     description: 🧪 Related to test coverage and improvements
     files:
       - test/**/*
-      - "**/*.test.js"
-      - "**/*.spec.js"
+      - '**/*.test.js'
+      - '**/*.spec.js'
       - jest.config.js
       - mocha.opts
-    name: testing
     ref: |
       test
       testing
@@ -474,9 +473,9 @@ labels:
       mock
       stub
       spy
-  - color: FF5722
+  - name: performance
+    color: 'FF5722'
     description: ⚡ Performance improvements and optimizations
-    name: performance
     ref: |
       performance
       optimization

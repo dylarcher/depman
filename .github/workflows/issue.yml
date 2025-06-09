@@ -3,7 +3,6 @@ jobs:
     permissions:
       contents: read
       issues: write
-      models: read # Assuming 'models: read' is a valid permission
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

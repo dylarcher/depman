@@ -16,7 +16,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-reports
-          path: test/coverage
+          path: test/coverage # Path for coverage reports
           retention-days: 7
 name: Run test suite
-'on': [pull_request]
+on: [pull_request]

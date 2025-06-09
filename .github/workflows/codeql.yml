@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: npm
-          node-version: 20.19.2
+          node-version: '20.19.2' # Quoted node-version
       - env:
           NODE_ENV: production
         if: matrix.language == 'javascript'
@@ -60,7 +60,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: npm
-          node-version: 20.19.2
+          node-version: '20.19.2' # Quoted node-version
       - env:
           NODE_ENV: production
         if: matrix.language == 'javascript'
@@ -82,8 +82,7 @@ jobs:
         uses: github/codeql-action/autofix@v2
         with:
           category: main-autofix-${{ matrix.language }}-${{ github.run_id }}
-          commit_message: Apply CodeQL autofixes for ${{ matrix.language }} on m
-ain
+          commit_message: Apply CodeQL autofixes for ${{ matrix.language }} on main
           pr_title: '[Auto] CodeQL Fixes for ${{ matrix.language }} (main)'
           token: ${{ secrets.GITHUB_TOKEN }}
     strategy:

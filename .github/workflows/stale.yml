@@ -11,13 +11,9 @@ jobs:
           days-before-stale: 60
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-label: inactive-issue
-          stale-issue-message: ⚠️ This issue has been inactive for 60 days and i
-s marked as stale. Please add a comment or update the issue within 7 days to kee
-p it open, otherwise it will be automatically closed.
+          stale-issue-message: ⚠️ This issue has been inactive for 60 days and is marked as stale. Please add a comment or update the issue within 7 days to keep it open, otherwise it will be automatically closed.
           stale-pr-label: inactive-pr
-          stale-pr-message: ⚠️ This pull request has been inactive for 60 days a
-nd is marked as stale. Please update it or leave a comment within 7 days to keep
- it open, otherwise it will be automatically closed.
+          stale-pr-message: ⚠️ This pull request has been inactive for 60 days and is marked as stale. Please update it or leave a comment within 7 days to keep it open, otherwise it will be automatically closed.
 name: Monitor and close stale issues and PRs
 'on':
   schedule:

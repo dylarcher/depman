@@ -3,7 +3,6 @@ jobs:
     permissions:
       contents: read
       issues: write
-      models: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -13,8 +12,7 @@ jobs:
         uses: actions/ai-inference@v1
         with:
           prompt: |
-            Summarize the following GitHub issue clearly and concisely in one pa
-ragraph:
+            Summarize the following GitHub issue clearly and concisely in one paragraph:
             Title: ${{ github.event.issue.title }}
             Body: ${{ github.event.issue.body }}
       - env:
@@ -22,8 +20,11 @@ ragraph:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         name: Add summary comment to issue
         run: |
-          gh issue comment $ISSUE_NUMBER --body '### 📝 AI Summary\n\n${{ steps.i
-nference.outputs.response }}'
+          gh issue comment $ISSUE_NUMBER --body <<EOF
+### 📝 AI Summary
+
+${{ steps.inference.outputs.response }}
+EOF
 name: Summarize new issues using AI
 'on':
   issues:

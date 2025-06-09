@@ -90,6 +90,7 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+lib
 
 # Gatsby files
 .cache/
@@ -135,15 +136,20 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Operating System (OS)
+# macOS
 .DS_Store
 .AppleDouble
+._*
 .LSOverride
 
+# Linux
+*~
+.#*
+.swp
+.swo
 
-# Rules from packman/.gitignore
-node_modules/
-npm-debug.log
-*.log
-coverage/
-dist/
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/

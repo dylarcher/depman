@@ -1,0 +1,63 @@
+{
+  "all": true,
+  "allProbes": true,
+  "branches": 87.5,
+  "check-coverage": false,
+  "exclude": [],
+  "excludeNodeModules": true,
+  "extension": [".js"],
+  "functions": 90,
+  "include": ["src/**/*.js"],
+  "lines": 95,
+  "report-dir": "test/coverage",
+  "reporter": [
+    "text",
+    "lcov",
+    "text-summary",
+    "html",
+    "json",
+    "json-summary",
+    "cobertura",
+    "clover"
+  ],
+  "reporterOptions": {
+    "clover": {
+      "subdir": "clover",
+      "file": "clover.xml"
+    },
+    "cobertura": {
+      "subdir": "cobertura",
+      "file": "cobertura.xml"
+    },
+    "json": {
+      "subdir": "json",
+      "file": "coverage.json"
+    },
+    "json-summary": {
+      "subdir": "json",
+      "file": "coverage-summary.json"
+    },
+    "lcov": {
+      "subdir": "lcov",
+      "file": "coverage.lcov"
+    },
+    "text": {
+      "subdir": "text",
+      "file": "coverage.txt"
+    },
+    "text-summary": {
+      "subdir": "text",
+      "file": "coverage-summary.txt"
+    },
+    "html": {
+      "subdir": "html"
+    }
+  },
+  "statements": 92.5,
+  "watermarks": {
+    "branches": [36, 80],
+    "functions": [32, 64],
+    "lines": [48, 72],
+    "statements": [48, 96]
+  }
+}

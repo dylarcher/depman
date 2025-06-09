@@ -1,0 +1,103 @@
+jobs:
+  analyze_pr_code:
+    if: github.event_name == 'pull_request'
+    name: CodeQL PR Analysis (${{ matrix.language }})
+    permissions:
+      actions: read
+      contents: read
+      packages: read
+      security-events: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository source code (PR)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - if: matrix.language == 'javascript'
+        name: NodeJS environment setup (PR)
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          node-version: 20.19.2
+      - env:
+          NODE_ENV: production
+        if: matrix.language == 'javascript'
+        name: Project build process (PR)
+        run: |
+          npm ci --prefer-offline --no-audit
+          npm run build
+      - name: Initialize CodeQL (PR)
+        uses: github/codeql-action/init@v3
+        with:
+          build-mode: ${{ matrix.build-mode }}
+          config-file: ./.github/configs/codeql-config.yml
+          languages: ${{ matrix.language }}
+      - name: Perform CodeQL Analysis (PR)
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: pr-analysis-${{ matrix.language }}-${{ github.run_id }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - build-mode: none
+            language: javascript
+  scan_and_autofix_main:
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || githu
+b.ref == 'refs/heads/master')
+    name: CodeQL Scan and Autofix (${{ matrix.language }}) (main branch)
+    permissions:
+      actions: read
+      contents: write
+      packages: read
+      pull-requests: write
+      security-events: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository (main branch)
+        uses: actions/checkout@v4
+      - if: matrix.language == 'javascript'
+        name: NodeJS environment setup (main)
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          node-version: 20.19.2
+      - env:
+          NODE_ENV: production
+        if: matrix.language == 'javascript'
+        name: Project build process (main)
+        run: |
+          npm ci --prefer-offline --no-audit
+          npm run build
+      - name: Initialize CodeQL (main)
+        uses: github/codeql-action/init@v3
+        with:
+          build-mode: ${{ matrix.build-mode }}
+          config-file: ./.github/configs/codeql-config.yml
+          languages: ${{ matrix.language }}
+      - name: Perform CodeQL Analysis (main)
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: main-analysis-${{ matrix.language }}-${{ github.run_id }}
+      - name: Attempt to autofix alerts for ${{ matrix.language }} (main)
+        uses: github/codeql-action/autofix@v2
+        with:
+          category: main-autofix-${{ matrix.language }}-${{ github.run_id }}
+          commit_message: Apply CodeQL autofixes for ${{ matrix.language }} on m
+ain
+          pr_title: '[Auto] CodeQL Fixes for ${{ matrix.language }} (main)'
+          token: ${{ secrets.GITHUB_TOKEN }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - build-mode: none
+            language: javascript
+name: Analyze code with CodeQL
+'on':
+  pull_request:
+    branches: [ main, master ]
+  push:
+    branches: [ main, master ]
+  schedule:
+    - cron: 0 2 * * 1

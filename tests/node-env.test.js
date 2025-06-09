@@ -1,142 +1,147 @@
-const semver = require('semver');
-const fs = require('fs');
-const nodeEnv = require('../src/lib/node-env');
+import { test, describe, beforeEach, afterEach, mock } from 'node:test';
+import assert from 'node:assert';
+import semver from 'semver'; // Keep semver import
+// fs is now mocked globally
+import nodeEnv from '../src/lib/node-env.js'; // Ensure .js extension if using ES modules
+
+import { KNOWN_LTS_VERSIONS, getAvailableUpgradeOptions, updatePackageJsonEngines, identifyNodeOutliers } from '../src/lib/node-env.js';
 
 const {
   calculateSupportedNodeVersions,
-  getCurrentNodeVersion,
-  KNOWN_LTS_VERSIONS,
-  getAvailableUpgradeOptions,
-  updatePackageJsonEngines,
-  generateTestNodeVersions,
+  // getCurrentNodeVersion,
+  // generateTestNodeVersions, // Now mocked where needed or original used
   getProjectNodeVersionConstraint,
-  getDependencyNodeVersionConstraintsFromEnriched,
-  getNodeCompatibilityRange,
-  identifyNodeOutliers,
-} = nodeEnv;
+  // getDependencyNodeVersionConstraintsFromEnriched,
+  // getNodeCompatibilityRange,
+} = nodeEnv; // nodeEnv already imported, so we can destructure more from it.
 
-jest.mock('fs');
+// Mock 'fs' module (already defined from previous step)
+const fsMock = {
+  existsSync: mock.fn(() => true),
+  readFileSync: mock.fn(() => JSON.stringify({})),
+  writeFileSync: mock.fn(() => {}),
+};
+mock.module('fs', () => fsMock);
+
 
 describe('node-env.js', () => {
-  const originalGenerateTestNodeVersions = nodeEnv.generateTestNodeVersions;
+  const originalGenerateTestNodeVersions = nodeEnv.generateTestNodeVersions; // Keep for reference if needed
 
   beforeEach(() => {
-    fs.existsSync.mockReset();
-    fs.readFileSync.mockReset();
-    fs.writeFileSync.mockReset();
-    // Restore generateTestNodeVersions to its original implementation before each test
-    // This is important if any specific test suite or test case mocks it.
-    if (jest.isMockFunction(nodeEnv.generateTestNodeVersions)) {
-        nodeEnv.generateTestNodeVersions.mockImplementation(originalGenerateTestNodeVersions);
-    }
+    fsMock.existsSync.mock.resetCalls();
+    fsMock.readFileSync.mock.resetCalls();
+    fsMock.writeFileSync.mock.resetCalls();
+    // No direct equivalent for jest.isMockFunction, if generateTestNodeVersions is mocked using mock.method,
+    // it will be automatically restored if `times` is specified.
+    // If it's globally mocked via mock.module, then you'd manage its behavior differently or per-test.
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    // mock.reset() would reset all mocks, which might be too broad.
+    // Individual mock functions are typically reset in beforeEach or specific mocks restored.
+    // `mock.method` with `times` option handles its own restoration.
   });
 
   describe('calculateSupportedNodeVersions', () => {
     const ensureTestVersionsInclude = (versions) => {
-        // Use the actual originalGenerateTestNodeVersions from the module for a consistent base list
-        const currentTestVersions = originalGenerateTestNodeVersions();
+        const currentTestVersions = originalGenerateTestNodeVersions(); // Assuming this original is not a mock
         const combined = new Set([...currentTestVersions, ...versions]);
         return [...combined].sort(semver.compare);
     };
 
-    it('should return min, max, and range for simple overlap', () => {
+    test('should return min, max, and range for simple overlap', () => {
       const constraints = ['>=18.0.0', '<=18.19.1'];
-      // Temporarily mock generateTestNodeVersions for this specific test case
-      const mockGenerateFn = jest.spyOn(nodeEnv, 'generateTestNodeVersions').mockReturnValueOnce(
-        ensureTestVersionsInclude(['18.0.0', '18.10.0', '18.19.1', '20.0.0'])
+      mock.method(nodeEnv, 'generateTestNodeVersions', () =>
+        ensureTestVersionsInclude(['18.0.0', '18.10.0', '18.19.1', '20.0.0']),
+        { times: 1 }
       );
       const result = calculateSupportedNodeVersions(constraints);
-      expect(result.min).toBe('18.0.0');
-      expect(result.max).toBe('18.19.1');
-      expect(result.range).toBe('>=18.0.0 <=18.19.1');
-      mockGenerateFn.mockRestore();
+      assert.strictEqual(result.min, '18.0.0');
+      assert.strictEqual(result.max, '18.19.1');
+      assert.strictEqual(result.range, '>=18.0.0 <=18.19.1');
     });
 
-    it('should return null for no overlap', () => {
+    test('should return null for no overlap', () => {
       const constraints = ['<16.0.0', '>18.0.0'];
-      const mockGenerateFn = jest.spyOn(nodeEnv, 'generateTestNodeVersions').mockReturnValueOnce(
-        ensureTestVersionsInclude(['14.0.0', '15.0.0', '18.0.0', '19.0.0'])
+      mock.method(nodeEnv, 'generateTestNodeVersions', () =>
+        ensureTestVersionsInclude(['14.0.0', '15.0.0', '18.0.0', '19.0.0']),
+        { times: 1 }
       );
-      expect(calculateSupportedNodeVersions(constraints)).toBeNull();
-      mockGenerateFn.mockRestore();
+      assert.strictEqual(calculateSupportedNodeVersions(constraints), null);
     });
 
-    it('should handle complex overlapping ranges (carets, tildes)', () => {
+    test('should handle complex overlapping ranges (carets, tildes)', () => {
       const constraints = ['^16.0.0', '~16.13.0', '<=16.15.0'];
-      const mockGenerateFn = jest.spyOn(nodeEnv, 'generateTestNodeVersions').mockReturnValueOnce(
-        ensureTestVersionsInclude(['16.13.0', '16.13.1', '16.13.2', '16.14.0', '16.15.0'])
+      mock.method(nodeEnv, 'generateTestNodeVersions', () =>
+        ensureTestVersionsInclude(['16.13.0', '16.13.1', '16.13.2', '16.14.0', '16.15.0']),
+        { times: 1 }
       );
       const result = calculateSupportedNodeVersions(constraints);
-      expect(result.min).toBe('16.13.0');
-      expect(result.max).toBe('16.13.2');
-      expect(result.range).toBe('>=16.13.0 <=16.13.2');
-      mockGenerateFn.mockRestore();
+      assert.strictEqual(result.min, '16.13.0');
+      assert.strictEqual(result.max, '16.13.2');
+      assert.strictEqual(result.range, '>=16.13.0 <=16.13.2');
     });
 
-    it('should handle multiple conflicting constraints leading to no common range', () => {
+    test('should handle multiple conflicting constraints leading to no common range', () => {
       const constraints = ['^16.0.0', '^18.0.0'];
-      const mockGenerateFn = jest.spyOn(nodeEnv, 'generateTestNodeVersions').mockReturnValueOnce(
-        ensureTestVersionsInclude(['16.0.0', '16.5.0', '17.0.0', '18.0.0'])
+      mock.method(nodeEnv, 'generateTestNodeVersions', () =>
+        ensureTestVersionsInclude(['16.0.0', '16.5.0', '17.0.0', '18.0.0']),
+        { times: 1 }
       );
-      expect(calculateSupportedNodeVersions(constraints)).toBeNull();
-      mockGenerateFn.mockRestore();
+      assert.strictEqual(calculateSupportedNodeVersions(constraints), null);
     });
 
-    it('should handle prerelease versions if present in test versions', () => {
+    test('should handle prerelease versions if present in test versions', () => {
         const constraints = ['>=18.0.0-alpha.1'];
-        const mockGenerateFn = jest.spyOn(nodeEnv, 'generateTestNodeVersions').mockReturnValueOnce(
-            ensureTestVersionsInclude(['17.0.0', '18.0.0-alpha.1', '18.0.0'])
+        mock.method(nodeEnv, 'generateTestNodeVersions', () =>
+            ensureTestVersionsInclude(['17.0.0', '18.0.0-alpha.1', '18.0.0']),
+            { times: 1 }
         );
         const result = calculateSupportedNodeVersions(constraints);
-        expect(result.min).toBe('18.0.0-alpha.1');
-        mockGenerateFn.mockRestore();
+        assert.strictEqual(result.min, '18.0.0-alpha.1');
     });
 
-    it('should return {min: null, max: null, range: null} for empty or all invalid constraints', () => {
-      expect(calculateSupportedNodeVersions([])).toEqual({ min: null, max: null, range: null });
-      expect(calculateSupportedNodeVersions(['invalid', '>'])).toEqual({ min: null, max: null, range: null });
+    test('should return {min: null, max: null, range: null} for empty or all invalid constraints', () => {
+      assert.deepStrictEqual(calculateSupportedNodeVersions([]), { min: null, max: null, range: null });
+      assert.deepStrictEqual(calculateSupportedNodeVersions(['invalid', '>']), { min: null, max: null, range: null });
     });
   });
 
   describe('getProjectNodeVersionConstraint', () => {
-    beforeEach(() => { fs.existsSync.mockReset(); fs.readFileSync.mockReset(); });
-    // ... (Existing tests for getProjectNodeVersionConstraint from previous subtask) ...
-    it('should read project constraint', () => {
-        fs.existsSync.mockReturnValue(true);
-        fs.readFileSync.mockReturnValue(JSON.stringify({engines: {node: '>=16'}}));
-        expect(getProjectNodeVersionConstraint('/fake')).toBe('>=16');
+    beforeEach(() => { fsMock.existsSync.mock.resetCalls(); fsMock.readFileSync.mock.resetCalls(); });
+    // Test already converted in previous step
+    test('should read project constraint', () => {
+        fsMock.readFileSync.mock.mockImplementationOnce(() => JSON.stringify({engines: {node: '>=16'}}), { times: 1 });
+        assert.strictEqual(getProjectNodeVersionConstraint('/fake'), '>=16');
     });
   });
 
   describe('getAvailableUpgradeOptions', () => {
-    const _KNOWN_LTS_VERSIONS = KNOWN_LTS_VERSIONS;
-    // ... (Existing tests for getAvailableUpgradeOptions from previous subtask) ...
-    it('should show only LTS versions higher than current and within a tight supported range', () => {
+    // KNOWN_LTS_VERSIONS is imported directly, no need for _KNOWN_LTS_VERSIONS if not modified
+    test('should show only LTS versions higher than current and within a tight supported range', () => {
       const currentNode = 'v16.18.0';
       const supportedRange = { min: '18.18.0', max: '18.19.1', range: '>=18.18.0 <=18.19.1' };
-      const options = getAvailableUpgradeOptions(currentNode, supportedRange, _KNOWN_LTS_VERSIONS);
-      expect(options).toEqual(['18.18.0', '18.19.1']);
+      const options = getAvailableUpgradeOptions(currentNode, supportedRange, KNOWN_LTS_VERSIONS);
+      assert.deepStrictEqual(options, ['18.18.0', '18.19.1']);
     });
-     it('should handle current version being a pre-release against stable LTS', () => {
+
+    test('should handle current version being a pre-release against stable LTS', () => {
         const currentNode = 'v20.0.0-beta.1';
         const supportedRange = {min: '18.0.0', max: '22.0.0', range: ">=18.0.0 <=22.0.0"};
-        const options = getAvailableUpgradeOptions(currentNode, supportedRange, _KNOWN_LTS_VERSIONS);
-        expect(options).toEqual(expect.arrayContaining(['20.9.0', '20.10.0', '20.11.0', '22.0.0']));
+        const options = getAvailableUpgradeOptions(currentNode, supportedRange, KNOWN_LTS_VERSIONS);
+        const expectedSubset = ['20.9.0', '20.10.0', '20.11.0', '22.0.0'];
+        assert.ok(expectedSubset.every(item => options.includes(item)), "Options should contain all expected subset items");
     });
   });
 
   describe('updatePackageJsonEngines', () => {
-    // ... (Existing tests for updatePackageJsonEngines from previous subtask) ...
-    it('should update existing engines.node', () => {
-      fs.existsSync.mockReturnValue(true);
-      fs.readFileSync.mockReturnValue(JSON.stringify({ name: 'test', engines: { node: '>=16.0.0' } }));
+    test('should update existing engines.node', () => {
+      fsMock.existsSync.mock.mockImplementationOnce(() => true); // Explicitly set for this test
+      fsMock.readFileSync.mock.mockImplementationOnce(() => JSON.stringify({ name: 'test', engines: { node: '>=16.0.0' } }));
       updatePackageJsonEngines('/fake', '>=20.0.0');
-      const writtenContent = JSON.parse(fs.writeFileSync.mock.calls[0][1]);
-      expect(writtenContent.engines.node).toBe('>=20.0.0');
+      assert.strictEqual(fsMock.writeFileSync.mock.calls.length, 1);
+      const writtenContent = JSON.parse(fsMock.writeFileSync.mock.calls[0].arguments[1]);
+      assert.strictEqual(writtenContent.engines.node, '>=20.0.0');
     });
   });
 
@@ -144,11 +149,11 @@ describe('node-env.js', () => {
     let mockEnrichedDependencies;
     let projectNodeRange;
     let rootConstraint;
+    const testNodeVersions = ['16.0.0', '17.0.0', '18.0.0', '18.9.9', '18.18.0', '19.0.0', '20.0.0', '22.0.0'].sort(semver.compare);
 
+    // Apply mock for generateTestNodeVersions for all tests in this describe block
     beforeEach(() => {
-      jest.spyOn(nodeEnv, 'generateTestNodeVersions').mockReturnValue(
-        ['16.0.0', '17.0.0', '18.0.0', '18.9.9', '18.18.0', '19.0.0', '20.0.0', '22.0.0'].sort(semver.compare)
-      );
+      mock.method(nodeEnv, 'generateTestNodeVersions', () => testNodeVersions);
 
       rootConstraint = '>=16.0.0 <=22.0.0';
       mockEnrichedDependencies = {
@@ -159,31 +164,37 @@ describe('node-env.js', () => {
       };
 
       const allConstraintsForProject = [rootConstraint, '<=18.9.9', '>=18.0.0', '>=16.0.0 <=20.0.0'];
-      projectNodeRange = calculateSupportedNodeVersions(allConstraintsForProject);
-      // Expected: min=max(16,18,16)=18. max=min(22,18.9.9,20)=18.9.9. Range: >=18.0.0 <=18.9.9
-      expect(projectNodeRange.min).toBe('18.0.0');
-      expect(projectNodeRange.max).toBe('18.9.9');
+      projectNodeRange = calculateSupportedNodeVersions(allConstraintsForProject); // Uses the mocked generateTestNodeVersions
+      assert.strictEqual(projectNodeRange.min, '18.0.0');
+      assert.strictEqual(projectNodeRange.max, '18.9.9');
     });
 
-    it('should identify depA as limiting max version', () => {
+    afterEach(() => {
+      // Restore the original method if it was mocked with mock.method in beforeEach
+      // This is important if the mock is not self-restoring (e.g. no `times` option or not per-test)
+      // However, node:test's mock.method is designed to be reset for each test.
+      // If issues arise, explicit restoration might be needed: mock.restore(nodeEnv, 'generateTestNodeVersions');
+    });
+
+    test('should identify depA as limiting max version', () => {
       const outliers = identifyNodeOutliers(mockEnrichedDependencies, projectNodeRange, rootConstraint);
       const outlierA = outliers.find(o => o.packageName === 'depA_limits_max');
-      expect(outlierA).toBeDefined();
-      expect(outlierA.impact).toContain('Allows newer Node.js');
-      expect(outlierA.rangeWithoutOutlier.max).toBe('20.0.0'); // Without depA (<=18.9.9), max becomes 20.0.0
+      assert.ok(outlierA !== undefined, 'Outlier A should be defined');
+      assert.ok(outlierA.impact.includes('Allows newer Node.js'));
+      assert.strictEqual(outlierA.rangeWithoutOutlier.max, '20.0.0'); // Without depA (<=18.9.9), max becomes 20.0.0
     });
 
-    it('should identify depB as limiting min version', () => {
+    test('should identify depB as limiting min version', () => {
       const outliers = identifyNodeOutliers(mockEnrichedDependencies, projectNodeRange, rootConstraint);
       const outlierB = outliers.find(o => o.packageName === 'depB_limits_min');
-      expect(outlierB).toBeDefined();
-      expect(outlierB.impact).toContain('Allows older Node.js');
-      expect(outlierB.rangeWithoutOutlier.min).toBe('16.0.0'); // Without depB (>=18), min becomes 16.0.0
+      assert.ok(outlierB !== undefined, 'Outlier B should be defined');
+      assert.ok(outlierB.impact.includes('Allows older Node.js'));
+      assert.strictEqual(outlierB.rangeWithoutOutlier.min, '16.0.0'); // Without depB (>=18), min becomes 16.0.0
     });
 
-    it('should identify multiple outliers correctly', () => {
+    test('should identify multiple outliers correctly', () => {
         const outliers = identifyNodeOutliers(mockEnrichedDependencies, projectNodeRange, rootConstraint);
-        expect(outliers.length).toBe(2);
+        assert.strictEqual(outliers.length, 2);
     });
   });
 });

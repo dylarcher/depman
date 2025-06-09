@@ -4,7 +4,7 @@
   "description": "A CLI tool to help keep NodeJS projects up to date and aligned with industry standards.",
   "main": "src/lib/index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "c8 --config .github/configs/.c8rc.json node --test tests/"
   },
   "keywords": [
     "nodejs",
@@ -22,7 +22,5 @@
     "inquirer": "^8.2.6",
     "semver": "^7.7.2"
   },
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }
+  "devDependencies": {}
 }

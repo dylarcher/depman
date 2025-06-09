@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: 'If you use this software, please cite it as below.'
+type: software
+authors:
+  - given-names: 'Dylan'
+    family-names: 'Archer'
+    email: 'dylarcher@gmail.com'
+title: 'git.starter-template'
+version: '0.1.0'
+date-released: '2025-06-06'
+url: 'https://github.com/dylarcher/git.starter-template'
+repository-code: 'https://github.com/dylarcher/git.starter-template'
+abstract: 'A github starter template for creating a new repository with a set of
+ predefined structures, documents and configurations.'
+keywords:
+  - 'github-template'
+  - 'starter-template'
+  - 'javascript'
+  - 'repository-template'
+  - 'project-template'
+license: MIT

@@ -25,5 +25,5 @@
     }
   },
   "organizeImports": { "enabled": true },
-  "files": { "ignore": ["/test/coverage/"] }
+  "files": { "ignore": ["test/coverage/"] }
 }

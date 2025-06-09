@@ -21,4 +21,6 @@ jobs:
           git add -A
           git diff --staged --quiet || (git commit -m "Automated formatting" && git push)
 name: Prettier
+permissions:
+  contents: write
 on: [pull_request]

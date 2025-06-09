@@ -1,0 +1,22 @@
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: NodeJS environment setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: NodeJS dependency setup
+        run: npm ci
+      - name: Test project source code
+        run: npm test
+      - if: always()
+        name: Upload coverage reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-reports
+          path: test/coverage
+          retention-days: 7
+name: Run test suite
+'on': [pull_request]

@@ -1,11 +1,13 @@
+name: "CodeQL Configuration"
+
 # Keep default queries enabled
 disable-default-queries: false
-name: CodeQL Configuration
 
 # Paths to include in analysis
 paths:
   - src/**
   - bin/**
+
 # Paths to exclude from analysis
 paths-ignore:
   - node_modules/**
@@ -13,8 +15,8 @@ paths-ignore:
   - build/**
   - coverage/**
   - test/coverage/**
-  - '/**/.min.js'
-  - '/**/.bundle.js'
+  - '**/*.min.js'
+  - '**/*.bundle.js'
 
 # Use security-focused query suites
 queries:
@@ -22,6 +24,7 @@ queries:
     uses: security-extended
   - name: security-and-quality
     uses: security-and-quality
+
 # Optional: Query filters to exclude specific rules
 query-filters:
   - exclude:

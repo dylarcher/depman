@@ -5,7 +5,7 @@ labels:
     files:
       - .github/**/*.yml
       - .github/**/*.yaml
-      - .github/**/.json
+      - .github/**/*.json
       - .github/workflows/**
       - .github/actions/**
       - .github/workflows/*.yml
